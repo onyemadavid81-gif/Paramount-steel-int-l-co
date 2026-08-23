@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quote — Paramount Steel International Co.</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --brand-navy: #0b1b3d;
+      --brand-navy-dark: #050d1e;
+      --brand-green: #008751;
+      --brand-green-hover: #006b40;
+      --steel-slate: #64748b;
+      --bg-light: #f8fafc;
+      --border-sharp: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background-color: var(--bg-light);
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--brand-green);
+    }
+    .top-strip a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .top-strip a:hover {
+      color: var(--brand-green);
+    }
+
+    /* Sticky Header & Navbar */
+    .sticky-top-header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .navbar-paramount {
+      background-color: var(--brand-navy-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .navbar-paramount.scrolled {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      padding-top: 0.25rem !important;
+      padding-bottom: 0.25rem !important;
+    }
+    .header-logo {
+      height: auto;
+      max-height: 80px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
+    }
+    .navbar-paramount .nav-link {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 1rem 1rem !important;
+      transition: color 0.2s;
+    }
+    .navbar-paramount .nav-link:hover, 
+    .navbar-paramount .nav-link.active {
+      color: var(--brand-green);
+    }
+
+    /* Mega Menu Dropdown */
+    .mega-menu {
+      width: 650px;
+      border: none;
+      border-top: 4px solid var(--brand-green);
+      border-radius: 0;
+      box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
+      background: #ffffff;
+    }
+    .mega-menu a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      display: block;
+      transition: all 0.2s;
+    }
+    .mega-menu a:hover {
+      color: var(--brand-green);
+      padding-left: 6px;
+    }
+    @media (min-width: 992px) {
+      .dropdown:hover .mega-menu {
+        display: block;
+      }
+    }
+
+    /* Page Header Banner */
+    .page-banner {
+      background: linear-gradient(135deg, rgba(11, 27, 61, 0.95) 0%, rgba(5, 13, 30, 0.9) 100%), 
+                  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      padding: 70px 0;
+      color: #ffffff;
+      border-bottom: 4px solid var(--brand-green);
+    }
+
+    /* Sharp Custom Buttons */
+    .btn-brand-green {
+      background-color: var(--brand-green);
+      color: #ffffff !important;
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-brand-green:hover {
+      background-color: var(--brand-green-hover);
+    }
+
+    /* RFQ Form Card */
+    .rfq-card {
+      background: #ffffff;
+      border: 1px solid var(--border-sharp);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(11, 27, 61, 0.05);
+    }
+
+    .form-control, .form-select {
+      border-radius: 4px;
+      border: 1px solid #cbd5e1;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.9rem;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--brand-green);
+      box-shadow: 0 0 0 0.25rem rgba(0, 135, 81, 0.15);
+    }
+
+    .section-title {
+      border-left: 4px solid var(--brand-green);
+      padding-left: 12px;
+      color: var(--brand-navy);
+      font-weight: 700;
+    }
+
+    /* Summary Sidebar Card */
+    .summary-card {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    .footer-industrial {
+      background-color: var(--brand-navy-dark);
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-heading {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: #25d366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.2s ease-in-out;
+    }
+    .whatsapp-float:hover {
+      color: #ffffff;
+      background-color: #1ebe57;
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
+  <div class="top-strip py-2 d-none d-lg-block">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
+          <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="badge bg-success font-monospace">BN: 2200741</span>
+          <div class="social-links">
+            <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN NAVBAR ==================== -->
+  <div class="sticky-top-header">
+    <nav class="navbar navbar-expand-lg navbar-paramount py-2" id="mainNavbar">
+      <div class="container">
+        
+        <a class="navbar-brand" href="index.html">
+          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+        </a>
+
+        <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="paramountNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="about.html" data-bs-toggle="dropdown">About Us</a>
+              <ul class="dropdown-menu rounded-0 border-0 shadow">
+                <li><a class="dropdown-item py-2 fw-semibold" href="about.html">Company Profile</a></li>
+                <li><a class="dropdown-item py-2 fw-semibold" href="facilities.html">Depot & Stockyard</a></li>
+                <li><a class="dropdown-item py-2 fw-semibold" href="quality.html">Quality Assurance</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="products.html" data-bs-toggle="dropdown">Products Catalog</a>
+            <div class="dropdown-menu mega-menu p-4">
+              <div class="row g-4">
+                <div class="col-md-6 border-end">
+                  <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
+                  <a href="products.html#plates-section"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
+                  <a href="products.html#beams-section"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
+                  <a href="products.html#bars-section"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
+                  <a href="products.html#pipes-section"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
+                  <a href="products.html#stainless-section"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
+                  <a href="products.html#aluminum-section"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="quality.html">Sustainability</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Brand Values</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Get in Touch</a>
+            </li>
+
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a href="get-a-quote.html" class="btn btn-brand-green btn-sm active">
+                Get a Quote
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  <!-- ==================== PAGE BANNER ==================== -->
+  <section class="page-banner text-center">
+    <div class="container">
+      <span class="badge bg-success text-uppercase mb-2 px-3 py-2 fw-bold">Commercial & Industrial RFQ</span>
+      <h1 class="display-5 fw-bold text-uppercase">Request For Quotation (RFQ)</h1>
+      <p class="fs-6 text-white-50 max-w-2xl mx-auto mb-0">Fill in your material requirements below. Our commercial desk will respond with a mill-certified invoice quote within 2 business hours.</p>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN RFQ SECTION ==================== -->
+  <section class="py-5">
+    <div class="container py-3">
+      <div class="row g-4">
+        
+        <!-- Left Column: Dynamic RFQ Form -->
+        <div class="col-lg-8">
+          <div class="rfq-card p-4 p-md-5">
+            
+            <form id="rfqForm" action="#" method="POST" enctype="multipart/form-data">
+              
+              <!-- SECTION 1: Client & Company Information -->
+              <h5 class="section-title mb-4">1. Client & Project Information</h5>
+              
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold fs-7">Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="fullName" placeholder="Engr. John Doe" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold fs-7">Company / Enterprise Name</label>
+                  <input type="text" class="form-control" name="companyName" placeholder="StructureTech Engineering Ltd">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold fs-7">Official Email Address <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" name="email" placeholder="john@structuretech.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold fs-7">Phone Number (WhatsApp Preferred) <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" name="phone" placeholder="08012345678" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label fw-semibold fs-7">Delivery Site Location / City <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="deliveryLocation" placeholder="e.g. Lekki Phase 1, Lagos or Port Harcourt Site" required>
+                </div>
+              </div>
+
+              <hr class="my-4 text-muted">
+
+              <!-- SECTION 2: Dynamic Material Schedule Builder -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="section-title mb-0">2. Steel Product Schedule</h5>
+                <button type="button" class="btn btn-outline-success btn-sm fw-bold" id="addRowBtn">
+                  <i class="bi bi-plus-circle me-1"></i> Add Another Product
+                </button>
+              </div>
+              <p class="text-muted fs-7 mb-4">Specify the steel categories, dimensions, and expected quantity for accurate mill pricing.</p>
+
+              <!-- Dynamic Items Table Wrapper -->
+              <div id="productRowsContainer">
+                
+                <!-- Initial Row 1 -->
+                <div class="product-item-row bg-light p-3 rounded mb-3 border position-relative">
+                  <div class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold fs-7">Product Category</label>
+                      <select class="form-select product-category" name="products[0][category]" required>
+                        <option value="" selected disabled>Select Category</option>
+                        <option value="Mild Steel Plates">Mild & Floor Steel Plates</option>
+                        <option value="Universal I-Beams">Universal I-Beams & Columns</option>
+                        <option value="C-Channels">Parallel Flange C-Channels</option>
+                        <option value="Seamless Pipes">ERW & Seamless Steel Pipes</option>
+                        <option value="Angle Bars">Angle & Flat Solid Bars</option>
+                        <option value="Stainless Steel">Stainless Steel Profiles</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label class="form-label fw-semibold fs-7">Spec / Thickness (mm)</label>
+                      <input type="text" class="form-control" name="products[0][spec]" placeholder="e.g. 10mm or 150x75mm">
+                    </div>
+
+                    <div class="col-md-3">
+                      <label class="form-label fw-semibold fs-7">Est. Quantity / Tons</label>
+                      <input type="number" class="form-control qty-input" name="products[0][qty]" placeholder="Qty" min="1" required>
+                    </div>
+
+                    <div class="col-md-2 text-end">
+                      <button type="button" class="btn btn-outline-danger btn-sm w-100 remove-row-btn" disabled>
+                        <i class="bi bi-trash"></i> Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <hr class="my-4 text-muted">
+
+              <!-- SECTION 3: BOQ File Upload & Additional Notes -->
+              <h5 class="section-title mb-3">3. Attach Drawing or BOQ Document (Optional)</h5>
+              <div class="mb-4">
+                <label class="form-label fw-semibold fs-7">Upload Bill of Quantities (BOQ), PDF, or Specification Sheet</label>
+                <input class="form-control" type="file" name="boqFile" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg">
+                <div class="form-text fs-7">Accepted formats: .pdf, .xlsx, .docx, image files (Max: 10MB)</div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-semibold fs-7">Additional Specifications / Cutting Request</label>
+                <textarea class="form-control" name="additionalNotes" rows="3" placeholder="Specify cut-to-size lengths, steel grade preferences (e.g., S275, S355), or specific delivery timelines..."></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-brand-green btn-lg text-uppercase">
+                  <i class="bi bi-send-check me-2"></i> Submit Quotation Request
+                </button>
+              </div>
+
+            </form>
+
+            <!-- Success Alert Placeholder -->
+            <div id="quoteSuccessAlert" class="alert alert-success mt-4 d-none" role="alert">
+              <h5 class="alert-heading fw-bold"><i class="bi bi-check-circle-fill me-2"></i> RFQ Submitted Successfully!</h5>
+              <p class="mb-0">Thank you for contacting Paramount Steel. Our technical commercial desk has received your request and will forward an itemized invoice quote to your email shortly.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Instant Assistance & Depot Info -->
+        <div class="col-lg-4">
+          
+          <!-- Summary Box -->
+          <div class="summary-card p-4 mb-4">
+            <h5 class="fw-bold text-uppercase border-bottom border-success pb-2 mb-3">Why Order From Us?</h5>
+            
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-shield-check fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Direct Mill Importers</h6>
+                <p class="fs-7 text-white-50 mb-0">100% genuine steel directly sourced with certified heat numbers and test certificates.</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-truck fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Fast Site Delivery</h6>
+                <p class="fs-7 text-white-50 mb-0">Fleet delivery directly from our Orile Iganmu stockyard to your site across West Africa.</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <i class="bi bi-calculator fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Competitive Wholesale Rates</h6>
+                <p class="fs-7 text-white-50 mb-0">Tiered bulk discounts for major construction contractors and commercial fabricators.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Phone / Desk Contact Card -->
+          <div class="bg-white border rounded p-4">
+            <h6 class="fw-bold text-uppercase mb-3" style="color: var(--brand-navy);">Need Urgent Quotation?</h6>
+            <p class="fs-7 text-muted mb-3">Speak directly with our sales team for immediate stock status and price confirmation:</p>
+            
+            <a href="tel:08187766677" class="btn btn-outline-dark btn-sm w-100 mb-2 text-start">
+              <i class="bi bi-telephone-fill me-2 text-success"></i> Call: 0818 776 6677
+            </a>
+            <a href="tel:08020630066" class="btn btn-outline-dark btn-sm w-100 mb-2 text-start">
+              <i class="bi bi-telephone-fill me-2 text-success"></i> Call: 0802 063 0066
+            </a>
+            <a href="https://wa.me/2348187766677" target="_blank" class="btn btn-success btn-sm w-100 text-start">
+              <i class="bi bi-whatsapp me-2"></i> Chat on WhatsApp Sales Desk
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-industrial pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-5 border-bottom border-secondary">
+        
+        <!-- Col 1: Brand Logo & Summary -->
+        <div class="col-lg-3">
+          <div class="mb-3 d-inline-block p-2">
+            <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+          </div>
+          <p class="fs-7 text-white-50 mb-3">
+            Building a stronger future with precision, quality compliance, and reliable steel supply.
+          </p>
+          <div class="fs-7 text-white-50">
+            <div><strong class="text-success">Enterprise BN:</strong> 2200741</div>
+            <div><strong class="text-success">TIN:</strong> 12517812-0001</div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-lg-2 col-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="list-unstyled fs-7">
+            <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="quality.html" class="text-white-50 text-decoration-none">Quality Assurance</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
+            <li class="mb-2"><a href="get-a-quote.html" class="text-white-50 text-decoration-none">Get a Quote</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Products -->
+        <div class="col-lg-3 col-6">
+          <h6 class="footer-heading">Products</h6>
+          <ul class="list-unstyled fs-7">
+            <li class="mb-2"><a href="products/steel-plates.html" class="text-white-50 text-decoration-none">Mild & Checker Plates</a></li>
+            <li class="mb-2"><a href="products/beams-channels.html" class="text-white-50 text-decoration-none">Universal Beams & Channels</a></li>
+            <li class="mb-2"><a href="products/angle-bars.html" class="text-white-50 text-decoration-none">Angle & Solid Flat Bars</a></li>
+            <li class="mb-2"><a href="products/pipes-tubes.html" class="text-white-50 text-decoration-none">Seamless & ERW Pipes</a></li>
+            <li class="mb-2"><a href="products/stainless.html" class="text-white-50 text-decoration-none">Stainless Steel Profiles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Depots -->
+        <div class="col-lg-4">
+          <h6 class="footer-heading">Contact & Stockyard</h6>
+          <div class="fs-7 text-white-50 mb-3">
+            <p class="mb-1"><i class="bi bi-geo-alt-fill text-success me-2"></i> No. 10, Alhaji Bello Tapa Street, Behind Iron Market, Orile Iganmu, Lagos State, Nigeria.</p>
+            <p class="mb-1"><i class="bi bi-telephone-fill text-success me-2"></i> 08187766677 / 08020630066</p>
+            <p class="mb-0"><i class="bi bi-envelope-fill text-success me-2"></i> paramountsteel@rocketmail.com</p>
+          </div>
+          
+          <h6 class="text-white fw-bold fs-7 text-uppercase mb-2">Connect With Us</h6>
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-outline-light btn-sm rounded-0"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-0"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-0"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-4 text-center fs-7 text-white-50">
+        <p class="mb-0">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Interactive Dynamic Form Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      const container = document.getElementById('productRowsContainer');
+      const addRowBtn = document.getElementById('addRowBtn');
+      const rfqForm = document.getElementById('rfqForm');
+      const quoteSuccessAlert = document.getElementById('quoteSuccessAlert');
+      let rowCounter = 1;
+
+      // Update delete button states based on row count
+      function updateRemoveButtonState() {
+        const rows = container.querySelectorAll('.product-item-row');
+        rows.forEach(row => {
+          const removeBtn = row.querySelector('.remove-row-btn');
+          if (rows.length === 1) {
+            removeBtn.setAttribute('disabled', 'true');
+          } else {
+            removeBtn.removeAttribute('disabled');
+          }
+        });
+      }
+
+      // Add dynamic product row
+      addRowBtn.addEventListener('click', function () {
+        const newRow = document.createElement('div');
+        newRow.className = 'product-item-row bg-light p-3 rounded mb-3 border position-relative';
+        newRow.innerHTML = `
+          <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+              <label class="form-label fw-semibold fs-7">Product Category</label>
+              <select class="form-select product-category" name="products[${rowCounter}][category]" required>
+                <option value="" selected disabled>Select Category</option>
+                <option value="Mild Steel Plates">Mild & Floor Steel Plates</option>
+                <option value="Universal I-Beams">Universal I-Beams & Columns</option>
+                <option value="C-Channels">Parallel Flange C-Channels</option>
+                <option value="Seamless Pipes">ERW & Seamless Steel Pipes</option>
+                <option value="Angle Bars">Angle & Flat Solid Bars</option>
+                <option value="Stainless Steel">Stainless Steel Profiles</option>
+              </select>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label fw-semibold fs-7">Spec / Thickness (mm)</label>
+              <input type="text" class="form-control" name="products[${rowCounter}][spec]" placeholder="e.g. 10mm or 150x75mm">
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label fw-semibold fs-7">Est. Quantity / Tons</label>
+              <input type="number" class="form-control qty-input" name="products[${rowCounter}][qty]" placeholder="Qty" min="1" required>
+            </div>
+
+            <div class="col-md-2 text-end">
+              <button type="button" class="btn btn-outline-danger btn-sm w-100 remove-row-btn">
+                <i class="bi bi-trash"></i> Remove
+              </button>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(newRow);
+        rowCounter++;
+        updateRemoveButtonState();
+      });
+
+      // Delegate remove event for dynamically added rows
+      container.addEventListener('click', function (e) {
+        if (e.target.closest('.remove-row-btn')) {
+          const rowToRemove = e.target.closest('.product-item-row');
+          if (container.querySelectorAll('.product-item-row').length > 1) {
+            rowToRemove.remove();
+            updateRemoveButtonState();
+          }
+        }
+      });
+
+      // Handle Form Submission Mock
+      rfqForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        quoteSuccessAlert.classList.remove('d-none');
+        rfqForm.reset();
+        window.scrollTo({ top: quoteSuccessAlert.offsetTop - 100, behavior: 'smooth' });
+      });
+
+      // Sticky Navbar Scroll Listener
+      const mainNavbar = document.getElementById('mainNavbar');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          mainNavbar.classList.add('scrolled');
+        } else {
+          mainNavbar.classList.remove('scrolled');
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>

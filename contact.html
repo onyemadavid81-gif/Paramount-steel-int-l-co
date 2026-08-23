@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get in Touch — Paramount Steel International Co.</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --brand-navy: #0b1b3d;
+      --brand-navy-dark: #050d1e;
+      --brand-green: #008751;
+      --brand-green-hover: #006b40;
+      --bg-light: #f8fafc;
+      --border-sharp: #e2e8f0;
+      --gold-accent: #c5a059;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--brand-green);
+    }
+
+    /* Sticky Navbar */
+    .sticky-top-header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .navbar-paramount {
+      background-color: var(--brand-navy-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-logo {
+      max-height: 70px;
+      width: auto;
+    }
+    .navbar-paramount .nav-link {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 1rem 1rem !important;
+      letter-spacing: 0.3px;
+    }
+    .navbar-paramount .nav-link:hover, 
+    .navbar-paramount .nav-link.active {
+      color: var(--brand-green);
+    }
+
+    /* Mega Menu Dropdown */
+    .mega-menu {
+      width: 650px;
+      border: none;
+      border-top: 4px solid var(--brand-green);
+      border-radius: 0;
+      box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
+      background: #ffffff;
+    }
+    .mega-menu a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      display: block;
+    }
+    .mega-menu a:hover {
+      color: var(--brand-green);
+      padding-left: 6px;
+    }
+    @media (min-width: 992px) {
+      .dropdown:hover .mega-menu { display: block; }
+    }
+
+    /* Header Banner */
+    .contact-hero {
+      background: linear-gradient(135deg, rgba(11, 27, 61, 0.95) 0%, rgba(5, 13, 30, 0.98) 100%), 
+                  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: #ffffff;
+      padding: 5rem 0 4rem;
+      border-bottom: 3px solid var(--gold-accent);
+    }
+
+    /* Contact Details Block */
+    .contact-info-card {
+      background: var(--brand-navy-dark);
+      color: #ffffff;
+      padding: 2.5rem;
+      height: 100%;
+      border-left: 4px solid var(--brand-green);
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+    .info-icon {
+      font-size: 1.5rem;
+      color: var(--brand-green);
+      margin-right: 1.25rem;
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+
+    /* Form Styling */
+    .contact-form-card {
+      background: #ffffff;
+      border: 1px solid var(--border-sharp);
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+    .form-control, .form-select {
+      border-radius: 0;
+      border: 1px solid var(--border-sharp);
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--brand-navy);
+      box-shadow: none;
+    }
+    .form-label {
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--brand-navy);
+    }
+
+    /* Buttons */
+    .btn-brand-green {
+      background-color: var(--brand-green);
+      color: #ffffff !important;
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.85rem 2rem;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .btn-brand-green:hover { background-color: var(--brand-green-hover); }
+
+    /* Map Box */
+    .map-container {
+      border: 1px solid var(--border-sharp);
+      background: #e2e8f0;
+      height: 350px;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: #25d366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
+  <div class="top-strip py-2 d-none d-lg-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
+        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+      </div>
+      <div>
+        <span class="badge bg-success font-monospace">BN: 2200741</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN NAVBAR ==================== -->
+  <div class="sticky-top-header">
+    <nav class="navbar navbar-expand-lg navbar-paramount py-2">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+        </a>
+
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="paramountNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            
+            <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="products.html" data-bs-toggle="dropdown">Products Catalog</a>
+              <div class="dropdown-menu mega-menu p-4">
+                <div class="row g-4">
+                  <div class="col-md-6 border-end">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
+                    <a href="products.html#plates-section"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
+                    <a href="products.html#beams-section"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
+                    <a href="products.html#bars-section"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
+                    <a href="products.html#pipes-section"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
+                    <a href="products.html#stainless-section"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
+                    <a href="products.html#aluminum-section"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="brand-values.html">Brand Values</a></li>
+            <li class="nav-item"><a class="nav-link active" href="contact.html">Get in Touch</a></li>
+            <li class="nav-item ms-lg-3"><a href="get-a-quote.html" class="btn btn-brand-green btn-sm">Get a Quote</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="contact-hero text-center">
+    <div class="container">
+      <span class="text-uppercase fw-bold text-success fs-7 tracking-wider d-block mb-2">Direct Enterprise Channels</span>
+      <h1 class="display-5 fw-bold text-uppercase mb-3">Connect With Our Commercial Team</h1>
+      <p class="lead text-white-50 mx-auto" style="max-width: 650px; font-size: 1.05rem;">
+        Whether you are managing an upcoming civil project or sourcing bulk industrial inventory, our technical sales desk is ready to assist.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT BODY ==================== -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-5">
+        
+        <!-- Left Column: Corporate Info -->
+        <div class="col-lg-5">
+          <div class="contact-info-card shadow-sm">
+            <h3 class="fw-bold text-uppercase fs-4 mb-4" style="color: #ffffff;">Executive Desk</h3>
+            
+            <div class="info-item">
+              <i class="bi bi-geo-alt-fill info-icon"></i>
+              <div>
+                <h6 class="fw-bold text-uppercase fs-7 text-success mb-1">Stockyard & Sales Office</h6>
+                <p class="text-white-50 fs-7 mb-0">Paramount Steel Yard, Industrial District, Lagos State, Nigeria</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="bi bi-telephone-fill info-icon"></i>
+              <div>
+                <h6 class="fw-bold text-uppercase fs-7 text-success mb-1">Direct Lines</h6>
+                <p class="text-white-50 fs-7 mb-0">08187766677</p>
+                <p class="text-white-50 fs-7 mb-0">08020630066</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="bi bi-envelope-fill info-icon"></i>
+              <div>
+                <h6 class="fw-bold text-uppercase fs-7 text-success mb-1">Official Inquiry Email</h6>
+                <p class="text-white-50 fs-7 mb-0">paramountsteel@rocketmail.com</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="bi bi-clock-fill info-icon"></i>
+              <div>
+                <h6 class="fw-bold text-uppercase fs-7 text-success mb-1">Operations Schedule</h6>
+                <p class="text-white-50 fs-7 mb-0">Monday – Friday: 8:00 AM – 5:30 PM</p>
+                <p class="text-white-50 fs-7 mb-0">Saturday: 8:30 AM – 2:00 PM</p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-top border-secondary mt-4">
+              <small class="text-white-50 font-monospace">BN REGISTRATION: 2200741</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Dispatch Form -->
+        <div class="col-lg-7">
+          <div class="contact-form-card">
+            <h3 class="fw-bold text-uppercase fs-4 mb-1" style="color: var(--brand-navy);">Send Commercial Inquiry</h3>
+            <p class="text-muted fs-7 mb-4">Complete the fields below for official correspondence or product availability checks.</p>
+
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Full Name *</label>
+                  <input type="text" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Company / Firm</label>
+                  <input type="text" class="form-control" placeholder="Company Name Ltd.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Phone Number *</label>
+                  <input type="tel" class="form-control" placeholder="0800 000 0000" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" class="form-control" placeholder="name@company.com" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Inquiry Classification</label>
+                  <select class="form-select">
+                    <option selected>Select inquiry type...</option>
+                    <option>Product Stock Check</option>
+                    <option>Mill Test Certificate Request</option>
+                    <option>Logistics & Delivery Schedule</option>
+                    <option>General Corporate Inquiry</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Message / Details *</label>
+                  <textarea class="form-control" rows="5" placeholder="Specify material profiles, quantities, or specific project requirements..." required></textarea>
+                </div>
+                <div class="col-12 pt-2">
+                  <button type="submit" class="btn btn-brand-green w-100">Submit Direct Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LOCATION MAP ==================== -->
+  <section class="pb-5">
+    <div class="container">
+      <div class="map-container d-flex align-items-center justify-content-center text-center p-4">
+        <div>
+          <i class="bi bi-geo-alt fs-1 text-muted mb-2"></i>
+          <h5 class="fw-bold text-uppercase text-dark mb-1">Yard Location & Logistics Hub</h5>
+          <p class="text-muted fs-7 mb-0">Google Maps embed or precise yard directions can be wired here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center">
+      <p class="mb-0 fs-7 text-white-50">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

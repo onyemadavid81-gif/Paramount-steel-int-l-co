@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramount Steel International Co. — Premier Industrial Steel Stockist</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --brand-navy: #0b1b3d;
+      --brand-navy-dark: #050d1e;
+      --brand-green: #008751;
+      --brand-green-hover: #006b40;
+      --steel-slate: #64748b;
+      --bg-light: #f8fafc;
+      --border-sharp: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--brand-green);
+    }
+    .top-strip a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .top-strip a:hover {
+      color: var(--brand-green);
+    }
+
+    /* Sticky Header & Navbar */
+    .sticky-top-header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .navbar-paramount {
+      background-color: var(--brand-navy-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .navbar-paramount.scrolled {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      padding-top: 0.25rem !important;
+      padding-bottom: 0.25rem !important;
+    }
+    .header-logo {
+      height: auto;
+      max-height: 100px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      display: block;
+    }
+    .navbar-paramount .nav-link {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 1rem 1rem !important;
+      transition: color 0.2s;
+    }
+    .navbar-paramount .nav-link:hover, 
+    .navbar-paramount .nav-link.active {
+      color: var(--brand-green);
+    }
+
+    /* Mega Menu Dropdown */
+    .mega-menu {
+      width: 650px;
+      border: none;
+      border-top: 4px solid var(--brand-green);
+      border-radius: 0;
+      box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
+      background: #ffffff;
+    }
+    .mega-menu a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      display: block;
+      transition: all 0.2s;
+    }
+    .mega-menu a:hover {
+      color: var(--brand-green);
+      padding-left: 6px;
+    }
+    @media (min-width: 992px) {
+      .dropdown:hover .mega-menu {
+        display: block;
+      }
+    }
+
+    /* Hero Banner Section Carousel */
+    .hero-carousel .carousel-item {
+      height: 580px;
+      min-height: 450px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero-carousel .carousel-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(11, 27, 61, 0.92) 0%, rgba(5, 13, 30, 0.82) 100%);
+      z-index: 1;
+    }
+    .hero-carousel .carousel-caption {
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      bottom: auto;
+      text-align: left;
+    }
+
+    /* Custom Carousel Control Styling */
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+      width: 5%;
+      z-index: 3;
+      opacity: 0.7;
+    }
+    .hero-carousel .carousel-control-prev:hover,
+    .hero-carousel .carousel-control-next:hover {
+      opacity: 1;
+    }
+    .hero-carousel .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--brand-green);
+      margin: 0 5px;
+    }
+
+    /* Sharp Custom Buttons */
+    .btn-brand-green {
+      background-color: var(--brand-green);
+      color: #ffffff !important;
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-brand-green:hover {
+      background-color: var(--brand-green-hover);
+    }
+
+    .btn-outline-brand {
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.75rem 1.8rem;
+      transition: all 0.2s;
+    }
+    .btn-outline-brand:hover {
+      background-color: #ffffff;
+      color: var(--brand-navy);
+    }
+
+    /* About Section Counters Grid */
+    .stat-box {
+      border-left: 3px solid var(--brand-green);
+      padding-left: 1.25rem;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--brand-green);
+      line-height: 1;
+    }
+
+    /* Product Cards */
+    .product-card {
+      border: 1px solid var(--border-sharp);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #ffffff;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(11, 27, 61, 0.08);
+      border-color: var(--brand-green);
+    }
+    .product-card img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    /* Industry Icons */
+    .industry-icon-box {
+      width: 70px;
+      height: 70px;
+      background-color: var(--brand-green);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    /* CTA Section */
+    .cta-banner {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      padding: 80px 0;
+      border-top: 4px solid var(--brand-green);
+    }
+
+    /* Footer */
+    .footer-industrial {
+      background-color: var(--brand-navy-dark);
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-heading {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: #25d366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.2s ease-in-out;
+    }
+    .whatsapp-float:hover {
+      color: #ffffff;
+      background-color: #1ebe57;
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
+  <div class="top-strip py-2 d-none d-lg-block">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
+          <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="badge bg-success font-monospace">BN: 2200741</span>
+          <div class="social-links">
+            <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN NAVBAR ==================== -->
+  <div class="sticky-top-header">
+    <nav class="navbar navbar-expand-lg navbar-paramount py-2" id="mainNavbar">
+      <div class="container">
+        
+        <a class="navbar-brand" href="index.html">
+          <div>
+            
+          </div>
+          <img class="header-logo" src="Images/Paramount name only.png" alt="Paramount Steel Logo">
+        </a>
+
+        <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="paramountNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="about.html" data-bs-toggle="dropdown">About Us</a>
+              <ul class="dropdown-menu rounded-0 border-0 shadow">
+                <li><a class="dropdown-item py-2 fw-semibold" href="about.html">Company Profile</a></li>
+                <li><a class="dropdown-item py-2 fw-semibold" href="facilities.html">Depot & Stockyard</a></li>
+                <li><a class="dropdown-item py-2 fw-semibold" href="quality.html">Quality Assurance</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="products.html" data-bs-toggle="dropdown">Products Catalog</a>
+              <div class="dropdown-menu mega-menu p-4">
+                <div class="row g-4">
+                  <div class="col-md-6 border-end">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
+                    <a href="products.html#plates-section"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
+                    <a href="products.html#beams-section"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
+                    <a href="products.html#bars-section"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
+                    <a href="products.html#pipes-section"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
+                    <a href="products.html#stainless-section"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
+                    <a href="products.html#aluminum-section"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="quality.html">Sustainability</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Brand Values</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Get in Touch</a>
+            </li>
+
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a href="get-a-quote.html" class="btn btn-brand-green btn-sm">
+                Get a Quote
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  <!-- ==================== HERO SLIDER CAROUSEL ==================== -->
+  <div id="heroCarousel" class="carousel slide hero-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators mb-4">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop');">
+        <div class="container h-100 position-relative">
+          <div class="carousel-caption col-lg-8">
+            <span class="badge bg-success text-uppercase mb-3 px-3 py-2 fw-bold">Imported Steel Stockist</span>
+            <h1 class="display-3 fw-black text-uppercase mb-3 text-white">BEST QUALITY STRUCTURAL STEEL</h1>
+            <p class="fs-5 text-white-50 mb-4">A proud milestone that reflects our commitment to heavy industrial quality, stock accuracy, and supply reliability across West Africa.</p>
+            <div class="d-flex gap-3">
+              <a href="products.html" class="btn btn-brand-green text-uppercase">Explore Products</a>
+              <a href="get-a-quote.html" class="btn btn-outline-brand text-uppercase">Request RFQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop');">
+        <div class="container h-100 position-relative">
+          <div class="carousel-caption col-lg-8">
+            <span class="badge bg-success text-uppercase mb-3 px-3 py-2 fw-bold">Heavy Infrastructure Solutions</span>
+            <h1 class="display-3 fw-black text-uppercase mb-3 text-white">BEAMS, PIPES & CHECKER PLATES</h1>
+            <p class="fs-5 text-white-50 mb-4">Direct importers of high-grade universal beams, seamless pipes, and mild steel plates tailored to your project specs.</p>
+            <div class="d-flex gap-3">
+              <a href="products/steel-plates.html" class="btn btn-brand-green text-uppercase">View Inventory</a>
+              <a href="contact.html" class="btn btn-outline-brand text-uppercase">Talk to Sales</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop');">
+        <div class="container h-100 position-relative">
+          <div class="carousel-caption col-lg-8">
+            <span class="badge bg-success text-uppercase mb-3 px-3 py-2 fw-bold">Logistics & Supply Hub</span>
+            <h1 class="display-3 fw-black text-uppercase mb-3 text-white">ORILE IGANMU STOCKYARD</h1>
+            <p class="fs-5 text-white-50 mb-4">Strategically located in Lagos for efficient, rapid distribution across industrial zones and construction sites.</p>
+            <div class="d-flex gap-3">
+              <a href="facilities.html" class="btn btn-brand-green text-uppercase">Our Depots</a>
+              <a href="get-a-quote.html" class="btn btn-outline-brand text-uppercase">Get instant Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- ==================== ABOUT SECTION & STATS ==================== -->
+  <section class="py-5" style="background-color: #ffffff;">
+    <div class="container py-4">
+      <div class="row g-5 align-items-center">
+        
+        <!-- Left: Summary Text -->
+        <div class="col-lg-6">
+          <span class="badge bg-light text-success border border-success mb-3 px-3 py-2 fw-bold text-uppercase">About Paramount Steel</span>
+          <h2 class="display-6 fw-bold mb-3" style="color: var(--brand-navy);">
+            Engineering Strength. <br><span class="text-success">Delivering Trust.</span>
+          </h2>
+          <p class="text-muted leading-relaxed mb-3">
+            <strong>Paramount Steel International Co.</strong> is a premier importer and stockist of mild steel plates, universal beams, channels, seamless pipes, and structural profiles engineered for infrastructure, construction, oilfields, and heavy fabrications.
+          </p>
+          <p class="text-muted leading-relaxed mb-0">
+            With our primary depots situated at Orile Iganmu, Lagos, we deliver precision-built steel solutions that adhere strictly to international mill specifications and ISO compliance standards.
+          </p>
+        </div>
+
+        <!-- Right: 4-Box Animated Stats Grid -->
+        <div class="col-lg-6">
+          <div class="row g-4" id="statsContainer">
+            <div class="col-6">
+              <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="20">0</span>+</div>
+                <div class="fw-bold text-dark fs-7 text-uppercase">Years of Steel Stockist Excellence</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="100">0</span>K+</div>
+                <div class="fw-bold text-dark fs-7 text-uppercase">Tons Material Distributed</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="3000">0</span>+</div>
+                <div class="fw-bold text-dark fs-7 text-uppercase">Active Industrial Clients</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-box">
+                <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+                <div class="fw-bold text-dark fs-7 text-uppercase">Steel Product Categories</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PRODUCTS ==================== -->
+  <section class="py-5" style="background-color: var(--bg-light);">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold text-uppercase" style="color: var(--brand-navy);">Our Featured Products</h2>
+        <div class="mx-auto" style="width: 60px; height: 3px; background-color: var(--brand-green);"></div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+          <div class="product-card h-100 p-3">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" class="mb-3" alt="ERW Pipes">
+            <h5 class="fw-bold text-center text-uppercase" style="color: var(--brand-navy);">ERW Black Round Pipes</h5>
+            <p class="text-muted text-center fs-7 mb-3">Premium quality MS round pipes built for structural framing and fluid transmission.</p>
+            <div class="text-center">
+              <a href="products/pipes-tubes.html" class="text-success fw-bold text-decoration-none fs-7 text-uppercase">View Specifications &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-md-4">
+          <div class="product-card h-100 p-3">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" class="mb-3" alt="Steel Plates">
+            <h5 class="fw-bold text-center text-uppercase" style="color: var(--brand-navy);">Mild & Floor Steel Plates</h5>
+            <p class="text-muted text-center fs-7 mb-3">High-tensile steel plates, boiler stock, and durbar floor checker sheets.</p>
+            <div class="text-center">
+              <a href="products/steel-plates.html" class="text-success fw-bold text-decoration-none fs-7 text-uppercase">View Specifications &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-4">
+          <div class="product-card h-100 p-3">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" class="mb-3" alt="Universal Beams">
+            <h5 class="fw-bold text-center text-uppercase" style="color: var(--brand-navy);">Universal I-Beams & Channels</h5>
+            <p class="text-muted text-center fs-7 mb-3">Heavy structural I-Beams, H-Columns, and parallel flange channels for construction.</p>
+            <div class="text-center">
+              <a href="products/beams-channels.html" class="text-success fw-bold text-decoration-none fs-7 text-uppercase">View Specifications &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INDUSTRIES WE SERVE ==================== -->
+  <section class="py-5" style="background-color: #ffffff;">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold text-uppercase" style="color: var(--brand-navy);">Industries We Serve</h2>
+        <div class="mx-auto" style="width: 60px; height: 3px; background-color: var(--brand-green);"></div>
+      </div>
+
+      <div class="row g-4 text-center">
+        <!-- Industry 1 -->
+        <div class="col-md-3 col-6">
+          <div class="industry-icon-box">
+            <i class="bi bi-building"></i>
+          </div>
+          <h5 class="fw-bold text-uppercase fs-6" style="color: var(--brand-navy);">Construction</h5>
+          <p class="text-muted fs-7">High-strength structural steel for skyscrapers, bridges, and commercial projects.</p>
+        </div>
+
+        <!-- Industry 2 -->
+        <div class="col-md-3 col-6">
+          <div class="industry-icon-box">
+            <i class="bi bi-truck"></i>
+          </div>
+          <h5 class="fw-bold text-uppercase fs-6" style="color: var(--brand-navy);">Roadways</h5>
+          <p class="text-muted fs-7">Essential steel profiles for highway guardrails, overpasses, and transportation infrastructure.</p>
+        </div>
+
+        <!-- Industry 3 -->
+        <div class="col-md-3 col-6">
+          <div class="industry-icon-box">
+            <i class="bi bi-gear-wide-connected"></i>
+          </div>
+          <h5 class="fw-bold text-uppercase fs-6" style="color: var(--brand-navy);">Infrastructure</h5>
+          <p class="text-muted fs-7">Heavy framing and support steel for power plants, ports, and industrial complexes.</p>
+        </div>
+
+        <!-- Industry 4 -->
+        <div class="col-md-3 col-6">
+          <div class="industry-icon-box">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
+          <h5 class="fw-bold text-uppercase fs-6" style="color: var(--brand-navy);">Energy & Offshore</h5>
+          <p class="text-muted fs-7">Certified steel plates and pipes engineered for oil rigs, refineries, and energy plants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MEDIA / INSIGHTS COVERAGE ==================== -->
+  <section class="py-5" style="background-color: var(--bg-light);">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold text-uppercase" style="color: var(--brand-navy);">Media & Industry Coverage</h2>
+        <div class="mx-auto" style="width: 60px; height: 3px; background-color: var(--brand-green);"></div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Article 1 -->
+        <div class="col-md-4">
+          <div class="bg-white border rounded p-3 h-100">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Industry Article">
+            <span class="text-success fw-bold fs-7 text-uppercase">Trade & Industry</span>
+            <h6 class="fw-bold my-2" style="color: var(--brand-navy);">Paramount Steel Expands Direct Import Supply Lines in Lagos Yard</h6>
+            <p class="text-muted fs-7 mb-3">Expanding our Orile Iganmu stockyard footprint to support heavy structural projects...</p>
+            <a href="#" class="text-success fw-bold fs-7 text-decoration-none text-uppercase">Read Article <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="col-md-4">
+          <div class="bg-white border rounded p-3 h-100">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Industry Article">
+            <span class="text-success fw-bold fs-7 text-uppercase">Quality Standards</span>
+            <h6 class="fw-bold my-2" style="color: var(--brand-navy);">Understanding Gauge Specifications for Heavy Mild Steel Plates</h6>
+            <p class="text-muted fs-7 mb-3">A guide to mechanical compliance and cut-to-size specifications for engineers...</p>
+            <a href="#" class="text-success fw-bold fs-7 text-decoration-none text-uppercase">Read Article <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="col-md-4">
+          <div class="bg-white border rounded p-3 h-100">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Industry Article">
+            <span class="text-success fw-bold fs-7 text-uppercase">Market Outlook</span>
+            <h6 class="fw-bold my-2" style="color: var(--brand-navy);">Paramount Steel Introduces Extended Stainless & Alloy Stock Options</h6>
+            <p class="text-muted fs-7 mb-3">Meeting growing demands across the energy and maritime fabrication sectors...</p>
+            <a href="#" class="text-success fw-bold fs-7 text-decoration-none text-uppercase">Read Article <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CALL TO ACTION BANNER ==================== -->
+  <section class="cta-banner text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="display-5 fw-bold text-uppercase mb-3">Ready to Build Something Great?</h2>
+          <p class="fs-5 text-white-50 mb-4">Partner with Paramount Steel, a trusted stockist and importer of structural steel plates, beams, seamless pipes, and angles for infrastructure projects across Nigeria.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="contact.html" class="btn btn-outline-brand">Contact Us</a>
+            <a href="get-a-quote.html" class="btn btn-brand-green">Request RFQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-industrial pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-5 border-bottom border-secondary">
+        
+        <!-- Col 1: Brand Logo & Summary -->
+        <div class="col-lg-3">
+          <div class="mb-3 d-inline-block p-2">
+            <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+          </div>
+          <p class="fs-7 text-white-50 mb-3">
+            Building a stronger future with precision, quality compliance, and reliable steel supply.
+          </p>
+          <div class="fs-7 text-white-50">
+            <div><strong class="text-success">Enterprise BN:</strong> 2200741</div>
+            <div><strong class="text-success">TIN:</strong> 12517812-0001</div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-lg-2 col-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="list-unstyled fs-7">
+            <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="quality.html" class="text-white-50 text-decoration-none">Quality Assurance</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
+            <li class="mb-2"><a href="get-a-quote.html" class="text-white-50 text-decoration-none">Get a Quote</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Products -->
+        <div class="col-lg-3 col-6">
+          <h6 class="footer-heading">Products</h6>
+          <ul class="list-unstyled fs-7">
+            <li class="mb-2"><a href="products/steel-plates.html" class="text-white-50 text-decoration-none">Mild & Checker Plates</a></li>
+            <li class="mb-2"><a href="products/beams-channels.html" class="text-white-50 text-decoration-none">Universal Beams & Channels</a></li>
+            <li class="mb-2"><a href="products/angle-bars.html" class="text-white-50 text-decoration-none">Angle & Solid Flat Bars</a></li>
+            <li class="mb-2"><a href="products/pipes-tubes.html" class="text-white-50 text-decoration-none">Seamless & ERW Pipes</a></li>
+            <li class="mb-2"><a href="products/stainless.html" class="text-white-50 text-decoration-none">Stainless Steel Profiles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Depots -->
+        <div class="col-lg-4">
+          <h6 class="footer-heading">Contact & Stockyard</h6>
+          <div class="fs-7 text-white-50 mb-3">
+            <p class="mb-1"><i class="bi bi-geo-alt-fill text-success me-2"></i> No. 10, Alhaji Bello Tapa Street, Behind Iron Market, Orile Iganmu, Lagos State, Nigeria.</p>
+            <p class="mb-1"><i class="bi bi-telephone-fill text-success me-2"></i> 08187766677 / 08020630066</p>
+            <p class="mb-0"><i class="bi bi-envelope-fill text-success me-2"></i> paramountsteel@rocketmail.com</p>
+          </div>
+          
+          <h6 class="text-white fw-bold fs-7 text-uppercase mb-2">Connect With Us</h6>
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-outline-light btn-sm rounded-0"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-0"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-0"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-4 text-center fs-7 text-white-50">
+        <p class="mb-0">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- Bootstrap 5 Bundle JS (Includes Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Interactive Features JS Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // 1. Explicit Hero Carousel Initialization
+      const heroCarouselElement = document.getElementById('heroCarousel');
+      if (heroCarouselElement) {
+        new bootstrap.Carousel(heroCarouselElement, {
+          interval: 5000,
+          ride: 'carousel',
+          pause: 'hover',
+          wrap: true
+        });
+      }
+
+      // 2. Navbar Scroll Style Adjustment
+      const mainNavbar = document.getElementById('mainNavbar');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          mainNavbar.classList.add('scrolled');
+        } else {
+          mainNavbar.classList.remove('scrolled');
+        }
+      });
+
+      // 3. Stats Counter Intersection Observer Animation
+      const counters = document.querySelectorAll('.counter');
+      const statsContainer = document.getElementById('statsContainer');
+
+      if (statsContainer && counters.length > 0) {
+        let animated = false;
+
+        const animateCounters = () => {
+          counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 1800;
+            const increment = target / (duration / 16);
+
+            let current = 0;
+            const updateCount = () => {
+              current += increment;
+              if (current < target) {
+                counter.innerText = Math.ceil(current);
+                requestAnimationFrame(updateCount);
+              } else {
+                counter.innerText = target;
+              }
+            };
+            updateCount();
+          });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+              animateCounters();
+              animated = true;
+            }
+          });
+        }, { threshold: 0.4 });
+
+        observer.observe(statsContainer);
+      }
+    });
+  </script>
+</body>
+</html>

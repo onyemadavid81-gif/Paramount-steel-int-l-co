@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Values & Ethics — Paramount Steel International Co.</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --brand-navy: #0b1b3d;
+      --brand-navy-dark: #050d1e;
+      --brand-green: #008751;
+      --brand-green-hover: #006b40;
+      --bg-light: #f8fafc;
+      --border-sharp: #e2e8f0;
+      --gold-accent: #c5a059;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--brand-green);
+    }
+
+    /* Sticky Navbar */
+    .sticky-top-header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .navbar-paramount {
+      background-color: var(--brand-navy-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-logo {
+      max-height: 70px;
+      width: auto;
+    }
+    .navbar-paramount .nav-link {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 1rem 1rem !important;
+      letter-spacing: 0.3px;
+    }
+    .navbar-paramount .nav-link:hover, 
+    .navbar-paramount .nav-link.active {
+      color: var(--brand-green);
+    }
+
+    /* Mega Menu Dropdown */
+    .mega-menu {
+      width: 650px;
+      border: none;
+      border-top: 4px solid var(--brand-green);
+      border-radius: 0;
+      box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
+      background: #ffffff;
+    }
+    .mega-menu a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      display: block;
+    }
+    .mega-menu a:hover {
+      color: var(--brand-green);
+      padding-left: 6px;
+    }
+    @media (min-width: 992px) {
+      .dropdown:hover .mega-menu { display: block; }
+    }
+
+    /* Hero Section */
+    .values-hero {
+      background: linear-gradient(135deg, rgba(11, 27, 61, 0.95) 0%, rgba(5, 13, 30, 0.98) 100%), 
+                  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: #ffffff;
+      padding: 6rem 0 5rem;
+      border-bottom: 3px solid var(--gold-accent);
+    }
+    .hero-eyebrow {
+      color: var(--gold-accent);
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    /* Executive Creed Section */
+    .creed-card {
+      background: var(--brand-navy-dark);
+      color: #ffffff;
+      padding: 3rem;
+      border-left: 5px solid var(--brand-green);
+      position: relative;
+    }
+
+    /* Premium Value Card */
+    .value-card {
+      background: #ffffff;
+      border: 1px solid var(--border-sharp);
+      padding: 2.5rem 2rem;
+      height: 100%;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -10px rgba(11, 27, 61, 0.12);
+      border-color: var(--brand-green);
+    }
+    .value-number {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--gold-accent);
+      font-family: monospace;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .value-title {
+      color: var(--brand-navy);
+      font-weight: 800;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+
+    /* Stat Highlight Block */
+    .stat-box {
+      border-left: 3px solid var(--brand-green);
+      padding-left: 1.25rem;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--brand-navy);
+      line-height: 1;
+    }
+
+    /* Buttons */
+    .btn-brand-green {
+      background-color: var(--brand-green);
+      color: #ffffff !important;
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.75rem 1.5rem;
+      border: none;
+    }
+    .btn-brand-green:hover { background-color: var(--brand-green-hover); }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: #25d366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
+  <div class="top-strip py-2 d-none d-lg-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
+        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+      </div>
+      <div>
+        <span class="badge bg-success font-monospace">BN: 2200741</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN NAVBAR ==================== -->
+  <div class="sticky-top-header">
+    <nav class="navbar navbar-expand-lg navbar-paramount py-2">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+        </a>
+
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="paramountNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            
+            <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="products.html" data-bs-toggle="dropdown">Products Catalog</a>
+              <div class="dropdown-menu mega-menu p-4">
+                <div class="row g-4">
+                  <div class="col-md-6 border-end">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
+                    <a href="products.html#plates-section"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
+                    <a href="products.html#beams-section"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
+                    <a href="products.html#bars-section"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
+                    <a href="products.html#pipes-section"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
+                    <a href="products.html#stainless-section"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
+                    <a href="products.html#aluminum-section"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link active" href="brand-values.html">Brand Values</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Get in Touch</a></li>
+            <li class="nav-item ms-lg-3"><a href="get-a-quote.html" class="btn btn-brand-green btn-sm">Get a Quote</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="values-hero">
+    <div class="container text-center">
+      <p class="hero-eyebrow mb-2">Corporate Ethos & Institutional Integrity</p>
+      <h1 class="display-5 fw-bold text-uppercase mb-3">The Principles That Forge Us</h1>
+      <p class="lead text-white-50 mx-auto" style="max-width: 720px; font-size: 1.05rem; line-height: 1.7;">
+        At Paramount Steel International Co., our operational philosophy is simple: structural steel is only as strong as the integrity of the business supplying it. Here is how we govern our commitments.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== EXECUTIVE CREED ==================== -->
+  <section class="py-5 bg-light">
+    <div class="container py-3">
+      <div class="creed-card shadow-lg">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="text-uppercase fw-bold text-success fs-7 tracking-wider">Our Institutional Mandate</span>
+            <h2 class="fw-bold text-uppercase mt-2 mb-3 fs-3">Uncompromising Steel Standard</h2>
+            <p class="text-white-50 mb-0 fs-6" style="line-height: 1.8;">
+              "We do not cut corners on structural gauges, mill certs, or material grades. Every tonne of industrial steel that departs our yard carries the full weight of our operational reputation. Our partners rely on us to safeguard structural safety, project timelines, and budgetary accuracy."
+            </p>
+          </div>
+          <div class="col-lg-4 border-start border-secondary ps-lg-4">
+            <div class="mb-3 stat-box">
+              <div class="stat-number text-white">BN: 2200741</div>
+              <small class="text-white-50 text-uppercase fs-7">Registered Nigerian Enterprise</small>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number text-white">100%</div>
+              <small class="text-white-50 text-uppercase fs-7">Traceable Mill Standards</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORE PILLARS ==================== -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="text-uppercase fw-bold text-success fs-7 tracking-wider">Pillars of Excellence</span>
+        <h2 class="fw-bold text-uppercase" style="color: var(--brand-navy);">Our Four Operational Values</h2>
+        <div class="mx-auto bg-success mt-2" style="height: 3px; width: 60px;"></div>
+      </div>
+
+      <div class="row g-4">
+        
+        <!-- Value 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <span class="value-number">01 / INTEGRITY</span>
+            <h3 class="value-title">Absolute Gauge Honesty</h3>
+            <p class="text-muted fs-7 mb-0" style="line-height: 1.7;">
+              Nominal thickness guarantees. We sell exact specifications, ensuring contractors and structural engineers receive precise structural load ratings without compromise.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <span class="value-number">02 / RELIABILITY</span>
+            <h3 class="value-title">Precision Supply Logistics</h3>
+            <p class="text-muted fs-7 mb-0" style="line-height: 1.7;">
+              In civil engineering and industrial procurement, time is money. We maintain stock depth to honor tight fulfillment schedules and eliminate site downtime.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <span class="value-number">03 / EXCELLENCE</span>
+            <h3 class="value-title">Certified Origin Sourcing</h3>
+            <p class="text-muted fs-7 mb-0" style="line-height: 1.7;">
+              Direct mill relationships ensure our steel inventory complies with international manufacturing criteria including ASTM, BS EN, and API standards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="value-card">
+            <span class="value-number">04 / PARTNERSHIP</span>
+            <h3 class="value-title">Commercial Transparency</h3>
+            <p class="text-muted fs-7 mb-0" style="line-height: 1.7;">
+              Fair pricing, institutional quotes, and clear billing terms. We build long-term enterprise partnerships rather than brief transactional wins.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CALL TO ACTION ==================== -->
+  <section class="py-5 bg-light border-top">
+    <div class="container text-center py-3">
+      <h3 class="fw-bold text-uppercase mb-3" style="color: var(--brand-navy);">Partner With A Reliable Steel Stockist</h3>
+      <p class="text-muted mx-auto mb-4" style="max-width: 600px; font-size: 0.95rem;">
+        Discover how our commitment to structural excellence can support your next major infrastructure or industrial fabrication project.
+      </p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="get-a-quote.html" class="btn btn-brand-green text-uppercase">Request Commercial Quote</a>
+        <a href="contact.html" class="btn btn-outline-dark rounded-0 fw-bold px-4 text-uppercase">Speak With Procurement</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center">
+      <p class="mb-0 fs-7 text-white-50">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+
+
+.nav-head{
+
+}
+
+
+
+
+
+
+
+@media (max-width: 736px) {
+
+}
+
+@media only screen and (min-divice-width: 768px) and (max-divice-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* STYLE GO HERE */
+}
+
+@media (min-device-width: 737px) and (max-device-width: 991px) {
+    /* STYLE GO HERE */
+}
+
+@media (min-device-width: 737px) and (max-device-width: 767px) {
+    /* STYLE GO HERE */
+
+}

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Catalog — Paramount Steel International Co.</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --brand-navy: #0b1b3d;
+      --brand-navy-dark: #050d1e;
+      --brand-green: #008751;
+      --brand-green-hover: #006b40;
+      --bg-light: #f8fafc;
+      --border-sharp: #e2e8f0;
+      --title-red: #b91c1c;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--brand-green);
+    }
+
+    /* Sticky Navbar */
+    .sticky-top-header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .navbar-paramount {
+      background-color: var(--brand-navy-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-logo {
+      max-height: 70px;
+      width: auto;
+    }
+    .navbar-paramount .nav-link {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 1rem 1rem !important;
+    }
+    .navbar-paramount .nav-link:hover, 
+    .navbar-paramount .nav-link.active {
+      color: var(--brand-green);
+    }
+
+    /* Mega Menu Dropdown */
+    .mega-menu {
+      width: 650px;
+      border: none;
+      border-top: 4px solid var(--brand-green);
+      border-radius: 0;
+      box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
+      background: #ffffff;
+    }
+    .mega-menu a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      display: block;
+      cursor: pointer;
+    }
+    .mega-menu a:hover {
+      color: var(--brand-green);
+      padding-left: 6px;
+    }
+    @media (min-width: 992px) {
+      .dropdown:hover .mega-menu { display: block; }
+    }
+
+    /* Division Headers */
+    .division-header-banner {
+      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-dark) 100%);
+      color: #ffffff;
+      padding: 1.25rem;
+      border-left: 6px solid var(--brand-green);
+      margin-bottom: 2rem;
+    }
+
+    .category-section-title {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Product Cards */
+    .catalog-card {
+      background: #ffffff;
+      border: 1px solid var(--border-sharp);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .catalog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(11, 27, 61, 0.12);
+      border-color: var(--brand-green);
+    }
+    .catalog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .catalog-card-body {
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .catalog-card-title {
+      color: var(--title-red);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .catalog-card-link {
+      color: var(--brand-navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+    .catalog-card-link:hover { color: var(--brand-green); }
+
+    /* Filter Buttons */
+    .btn-filter {
+      border: 2px solid var(--brand-navy);
+      color: var(--brand-navy);
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.5rem 1.25rem;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .btn-filter:hover, .btn-filter.active {
+      background-color: var(--brand-navy);
+      color: #ffffff;
+    }
+
+    /* Buttons */
+    .btn-brand-green {
+      background-color: var(--brand-green);
+      color: #ffffff !important;
+      font-weight: 700;
+      border-radius: 0;
+      padding: 0.75rem 1.5rem;
+      border: none;
+    }
+    .btn-brand-green:hover { background-color: var(--brand-green-hover); }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      background-color: #25d366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
+  <div class="top-strip py-2 d-none d-lg-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
+        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+      </div>
+      <div>
+        <span class="badge bg-success font-monospace">BN: 2200741</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN NAVBAR ==================== -->
+  <div class="sticky-top-header">
+    <nav class="navbar navbar-expand-lg navbar-paramount py-2">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+        </a>
+
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="paramountNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            
+            <!-- MEGA MENU LINKED DIRECTLY TO IN-PAGE CATEGORIES -->
+            <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Products Catalog</a>
+              <div class="dropdown-menu mega-menu p-4">
+                <div class="row g-4">
+                  <div class="col-md-6 border-end">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
+                    <a onclick="filterCategory('plates-section')"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
+                    <a onclick="filterCategory('beams-section')"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
+                    <a onclick="filterCategory('bars-section')"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
+                    <a onclick="filterCategory('pipes-section')"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
+                    <a onclick="filterCategory('stainless-section')"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
+                    <a onclick="filterCategory('aluminum-section')"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Get in Touch</a></li>
+            <li class="nav-item ms-lg-3"><a href="get-a-quote.html" class="btn btn-brand-green btn-sm">Get a Quote</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ==================== FILTER BAR ==================== -->
+  <section class="py-4 bg-light border-bottom">
+    <div class="container text-center">
+      <h1 class="fw-bold text-uppercase mb-3" style="color: var(--brand-navy);">Steel Product Inventory</h1>
+      <p class="text-muted fs-7 mb-4">Click any filter or subcategory link to reveal its image grid on this page:</p>
+
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <button class="btn btn-filter active" id="btn-all" onclick="showAll()">Show All Products</button>
+        <button class="btn btn-filter" id="btn-structural" onclick="filterGroup('structural')">Structural & Commercial Steel</button>
+        <button class="btn btn-filter" id="btn-piping" onclick="filterGroup('piping')">Piping & Specialty Metals</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="py-5">
+    <div class="container">
+
+      <!-- ================= GROUP 1 ================= -->
+      <div class="group-container" id="group-structural">
+        <div class="division-header-banner">
+          <h2 class="m-0 text-uppercase fw-bold fs-4"><i class="bi bi-building me-2"></i> Division 1: Structural & Commercial Steel</h2>
+        </div>
+
+        <!-- 1.1 MILD & CHECKER STEEL PLATES -->
+        <div class="mb-5 product-row" id="plates-section">
+          <div class="category-section-title">Mild & Checker Steel Plates</div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Mild Steel Plate">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">MILD STEEL PLATES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Checker Plate">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">CHECKER FLOOR PLATES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="High Tensile Plate">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">HIGH-TENSILE PLATES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Boiler Plate">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">BOILER & PRESSURE PLATES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1.2 UNIVERSAL BEAMS & C-CHANNELS -->
+        <div class="mb-5 product-row" id="beams-section">
+          <div class="category-section-title">Universal I-Beams & C-Channels</div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="I-Beams">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">UNIVERSAL I-BEAMS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="C-Channels">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">STRUCTURAL C-CHANNELS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="H-Columns">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">HEAVY H-COLUMNS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Parallel Channels">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">PARALLEL CHANNELS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1.3 ANGLE, FLAT & SOLID BARS -->
+        <div class="mb-5 product-row" id="bars-section">
+          <div class="category-section-title">Angle, Flat & Solid Round Bars</div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Angle Bars">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">EQUAL ANGLE BARS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Flat Bars">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">MILD STEEL FLAT BARS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Square Bars">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">MS SQUARE BAR</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Round Shafts">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">SOLID ROUND SHAFTS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= GROUP 2 ================= -->
+      <div class="group-container" id="group-piping">
+        <div class="division-header-banner">
+          <h2 class="m-0 text-uppercase fw-bold fs-4"><i class="bi bi-gear-wide-connected me-2"></i> Division 2: Piping & Specialty Metals</h2>
+        </div>
+
+        <!-- 2.1 PIPES -->
+        <div class="mb-5 product-row" id="pipes-section">
+          <div class="category-section-title">Seamless Pipes & Hollow Sections</div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="API Pipes">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">API SEAMLESS PIPES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="ERW Black Pipes">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">ERW BLACK PIPES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Square Pipes">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">SQUARE HOLLOW PIPES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Rectangular Tubes">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">RECTANGULAR TUBES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2.2 STAINLESS STEEL -->
+        <div class="mb-5 product-row" id="stainless-section">
+          <div class="category-section-title">Stainless Steel Sheets & Profiles</div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Stainless Sheets">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">304/316 STAINLESS SHEETS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Stainless Pipes">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">STAINLESS SEAMLESS PIPES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Stainless Angles">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">STAINLESS ANGLE BARS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Stainless Rods">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">STAINLESS ROUND RODS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2.3 ALUMINUM -->
+        <div class="mb-5 product-row" id="aluminum-section">
+          <div class="category-section-title">Aluminum Stock & Industrial Coils</div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Aluminum Sheets">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">ALUMINUM PLAIN SHEETS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Stucco Coils">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">STUCCO EMBOSSED COILS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Aluminum Checker">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">ALUMINUM CHECKER PLATES</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="catalog-card h-100">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Aluminum Extrusions">
+                <div class="catalog-card-body">
+                  <h5 class="catalog-card-title">ALUMINUM EXTRUSIONS</h5>
+                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center">
+      <p class="mb-0 fs-7 text-white-50">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const allGroups = ['group-structural', 'group-piping'];
+    const allRows = ['plates-section', 'beams-section', 'bars-section', 'pipes-section', 'stainless-section', 'aluminum-section'];
+
+    // 1. Reset and Show Everything
+    function showAll() {
+      allGroups.forEach(id => document.getElementById(id).style.display = 'block');
+      allRows.forEach(id => document.getElementById(id).style.display = 'block');
+      
+      document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-all').classList.add('active');
+    }
+
+    // 2. Filter Main Group (Structural vs Piping)
+    function filterGroup(category) {
+      showAll();
+      document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+
+      if (category === 'structural') {
+        document.getElementById('group-structural').style.display = 'block';
+        document.getElementById('group-piping').style.display = 'none';
+        document.getElementById('btn-structural').classList.add('active');
+      } else if (category === 'piping') {
+        document.getElementById('group-structural').style.display = 'none';
+        document.getElementById('group-piping').style.display = 'block';
+        document.getElementById('btn-piping').classList.add('active');
+      }
+    }
+
+    // 3. Filter Specific Sub-Category Row when clicking Nav links (e.g. Mild & Checker Steel Plates)
+    function filterCategory(targetRowId) {
+      // Unhide both main groups
+      allGroups.forEach(id => document.getElementById(id).style.display = 'block');
+      
+      // Hide all product rows except the clicked target
+      allRows.forEach(id => {
+        const row = document.getElementById(id);
+        if (id === targetRowId) {
+          row.style.display = 'block';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      // Close mobile dropdown menu if open
+      const navbarCollapse = document.getElementById('paramountNav');
+      if (navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+        bsCollapse.hide();
+      }
+
+      // Smooth scroll down to the inventory section
+      document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

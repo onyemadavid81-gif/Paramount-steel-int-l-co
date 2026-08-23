@@ -1,0 +1,338 @@
+:root {
+  --brand-navy: #0b1b3d;
+  --brand-navy-dark: #050d1e;
+  --brand-green: #008751;
+  --brand-green-hover: #006b40;
+  --steel-slate: #64748b;
+  --bg-light: #f8fafc;
+  --border-sharp: #e2e8f0;
+}
+
+/* Global Box-Sizing & Overflow Safety */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling on mobile */
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive Image Global Fallback */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Top Strip */
+.top-strip {
+  background-color: var(--brand-navy);
+  color: #ffffff;
+  font-size: 0.82rem;
+  border-bottom: 2px solid var(--brand-green);
+}
+.top-strip a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.top-strip a:hover {
+  color: var(--brand-green);
+}
+
+/* Sticky Header & Fixed Logo Dimensions */
+.sticky-top-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+.navbar-paramount {
+  background-color: var(--brand-navy-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.navbar-paramount.scrolled {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+/* Responsive Logos */
+.header-logo {
+  height: auto;
+  max-height: 80px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-logo {
+  height: auto;
+  max-height: 70px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navigation Links */
+.navbar-paramount .nav-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.8rem 1rem !important;
+  transition: color 0.2s;
+}
+.navbar-paramount .nav-link:hover, 
+.navbar-paramount .nav-link.active {
+  color: var(--brand-green);
+}
+
+/* Mega Menu Dropdown */
+.mega-menu {
+  width: 100%;
+  max-width: 650px;
+  border: none;
+  border-top: 4px solid var(--brand-green);
+  border-radius: 0;
+  box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
+  background: #ffffff;
+}
+.mega-menu a {
+  color: #334155;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0;
+  display: block;
+  transition: all 0.2s;
+}
+.mega-menu a:hover {
+  color: var(--brand-green);
+  padding-left: 6px;
+}
+@media (min-width: 992px) {
+  .dropdown:hover .mega-menu {
+    display: block;
+  }
+}
+
+/* Page Header Banner */
+.page-header {
+  background: linear-gradient(135deg, rgba(11, 27, 61, 0.95) 0%, rgba(5, 13, 30, 0.88) 100%), 
+              url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0 50px;
+  color: #ffffff;
+  border-bottom: 3px solid var(--brand-green);
+}
+
+/* Custom Buttons */
+.btn-brand-green {
+  background-color: var(--brand-green);
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 0;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-brand-green:hover {
+  background-color: var(--brand-green-hover);
+}
+
+.btn-outline-brand {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0;
+  padding: 0.7rem 1.75rem;
+  transition: all 0.2s;
+}
+.btn-outline-brand:hover {
+  background-color: #ffffff;
+  color: var(--brand-navy);
+}
+
+/* Cards & Feature Boxes */
+.feature-card {
+  border: 1px solid var(--border-sharp);
+  border-top: 4px solid var(--brand-green);
+  background: #ffffff;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(11, 27, 61, 0.08);
+}
+
+.icon-box-circle {
+  width: 55px;
+  height: 55px;
+  background-color: rgba(0, 135, 81, 0.1);
+  color: var(--brand-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Facility Page Specific Styling */
+.depot-stat-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-sharp);
+  border-left: 4px solid var(--brand-green);
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.facility-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  width: 100%;
+}
+.facility-img-wrap img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.facility-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.badge-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--brand-navy);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-left: 3px solid var(--brand-green);
+}
+
+/* CTA Banner */
+.cta-banner {
+  background-color: var(--brand-navy);
+  color: #ffffff;
+  padding: 70px 0;
+  border-top: 4px solid var(--brand-green);
+}
+
+/* Footer */
+.footer-industrial {
+  background-color: var(--brand-navy-dark);
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-heading {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.25rem;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+.whatsapp-float:hover {
+  color: #ffffff;
+  background-color: #1ebe57;
+  transform: scale(1.08);
+}
+
+/* ==========================================================
+   MOBILE & RESPONSIVE OVERRIDES
+   ========================================================== */
+
+@media screen and (max-width: 991px) {
+  /* Prevent full-width mega menu overflow on mobile tablets */
+  .mega-menu {
+    width: 100%;
+    box-shadow: none;
+    border-left: 2px solid var(--brand-green);
+    border-top: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Reduce oversized top header and banner padding on small screens */
+  .page-header {
+    padding: 40px 0 30px;
+  }
+  
+  .cta-banner {
+    padding: 40px 0;
+  }
+
+  /* Make header and footer logos smaller on mobile */
+  .header-logo {
+    max-height: 55px;
+    max-width: 110px;
+  }
+
+  .footer-logo {
+    max-height: 55px;
+    max-width: 130px;
+  }
+
+  /* Adjust image height for small mobile viewports */
+  .facility-img-wrap img {
+    height: 240px;
+  }
+
+  /* Full width buttons on mobile screens for easy tapping */
+  .btn-brand-green,
+  .btn-outline-brand {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* Reposition floating WhatsApp button on mobile so it doesn't block content */
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+}
