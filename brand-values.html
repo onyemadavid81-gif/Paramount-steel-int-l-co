@@ -47,8 +47,13 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .header-logo {
-      max-height: 70px;
+      max-height: 60px;
       width: auto;
+    }
+    @media (min-width: 768px) {
+      .header-logo {
+        max-height: 80px;
+      }
     }
     .navbar-paramount .nav-link {
       color: #ffffff;
@@ -60,6 +65,19 @@
     .navbar-paramount .nav-link:hover, 
     .navbar-paramount .nav-link.active {
       color: var(--brand-green);
+    }
+
+    .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    padding: 0.5rem 0.65rem;
+    }
+
+    .navbar-toggler-icon {
+        filter: brightness(0) invert(1);
+    }
+
+    .navbar-toggler:hover {
+        border-color: #008751 !important;
     }
 
     /* Mega Menu Dropdown */
@@ -193,8 +211,8 @@
   <div class="top-strip py-2 d-none d-lg-block">
     <div class="container d-flex justify-content-between align-items-center">
       <div>
-        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
-        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> info@paramountsteel.com</span>
+        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08033459759 / 08020630066</span>
       </div>
       <div>
         <span class="badge bg-success font-monospace">BN: 2200741</span>
@@ -207,7 +225,7 @@
     <nav class="navbar navbar-expand-lg navbar-paramount py-2">
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+          <img class="header-logo" src="Images/paramount-logo.png" alt="Paramount Steel Logo">
         </a>
 
         <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
@@ -367,7 +385,7 @@
   </footer>
 
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+  <a href="https://wa.me/2348033459759" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
 
   <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

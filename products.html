@@ -1,12 +1,15 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products Catalog — Paramount Steel International Co.</title>
-  
+
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -42,23 +45,46 @@
       top: 0;
       z-index: 1030;
     }
+
     .navbar-paramount {
       background-color: var(--brand-navy-dark);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .header-logo {
-      max-height: 70px;
-      width: auto;
-    }
+
+
     .navbar-paramount .nav-link {
       color: #ffffff;
       font-weight: 600;
       font-size: 0.88rem;
       padding: 1rem 1rem !important;
     }
-    .navbar-paramount .nav-link:hover, 
+
+    .navbar-paramount .nav-link:hover,
     .navbar-paramount .nav-link.active {
       color: var(--brand-green);
+    }
+
+    .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    padding: 0.5rem 0.65rem;
+    }
+
+    .navbar-toggler-icon {
+        filter: brightness(0) invert(1);
+    }
+
+    .navbar-toggler:hover {
+        border-color: #008751 !important;
+    }
+
+    .header-logo {
+      max-height: 60px;
+      width: auto;
+    }
+    @media (min-width: 768px) {
+      .header-logo {
+        max-height: 80px;
+      }
     }
 
     /* Mega Menu Dropdown */
@@ -70,6 +96,7 @@
       box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
       background: #ffffff;
     }
+
     .mega-menu a {
       color: #334155;
       text-decoration: none;
@@ -79,17 +106,25 @@
       display: block;
       cursor: pointer;
     }
+
     .mega-menu a:hover {
       color: var(--brand-green);
       padding-left: 6px;
     }
+
     @media (min-width: 992px) {
-      .dropdown:hover .mega-menu { display: block; }
+      .dropdown:hover .mega-menu {
+        display: block;
+      }
     }
 
     /* Division Headers */
     .division-header-banner {
-      background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-dark) 100%);
+      background: linear-gradient(
+        135deg,
+        var(--brand-navy) 0%,
+        var(--brand-navy-dark) 100%
+      );
       color: #ffffff;
       padding: 1.25rem;
       border-left: 6px solid var(--brand-green);
@@ -113,35 +148,91 @@
       border-radius: 6px;
       overflow: hidden;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
+
     .catalog-card:hover {
-      transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(11, 27, 61, 0.12);
       border-color: var(--brand-green);
     }
+
     .catalog-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+
     .catalog-card-body {
       padding: 1.25rem 1rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
     }
+
     .catalog-card-title {
       color: var(--title-red);
       font-weight: 800;
       font-size: 0.95rem;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
-    .catalog-card-link {
+
+    .catalog-card-btn {
       color: var(--brand-navy);
       font-weight: 700;
       font-size: 0.88rem;
       text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
     }
-    .catalog-card-link:hover { color: var(--brand-green); }
+
+    .catalog-card-btn:hover {
+      color: var(--brand-green);
+    }
+
+    .catalog-card-btn .bi-chevron-down {
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .catalog-card-btn.active .bi-chevron-down {
+      transform: rotate(180deg);
+    }
+
+    /* Product Spec Drawer */
+    .product-spec-drawer {
+      background-color: var(--bg-light);
+      border-top: 1px dashed var(--border-sharp);
+      padding: 1rem;
+      font-size: 0.82rem;
+      text-align: left;
+      display: none !important;
+    }
+
+    .product-spec-drawer.show {
+      display: block !important;
+    }
+
+    .spec-table {
+      margin-bottom: 0.75rem;
+    }
+
+    .spec-table td {
+      padding: 0.25rem 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .spec-table td:first-child {
+      font-weight: 700;
+      color: var(--brand-navy);
+      width: 40%;
+    }
 
     /* Filter Buttons */
     .btn-filter {
@@ -153,7 +244,9 @@
       background: transparent;
       transition: all 0.2s;
     }
-    .btn-filter:hover, .btn-filter.active {
+
+    .btn-filter:hover,
+    .btn-filter.active {
       background-color: var(--brand-navy);
       color: #ffffff;
     }
@@ -167,7 +260,10 @@
       padding: 0.75rem 1.5rem;
       border: none;
     }
-    .btn-brand-green:hover { background-color: var(--brand-green-hover); }
+
+    .btn-brand-green:hover {
+      background-color: var(--brand-green-hover);
+    }
 
     /* WhatsApp Float */
     .whatsapp-float {
@@ -183,21 +279,43 @@
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       z-index: 1000;
       text-decoration: none;
     }
+
+      .catalog-card.h-100 {
+        height: auto !important;
+        align-self: flex-start;
+      }
+
+      .catalog-card {
+        align-self: flex-start;
+      }
+
+      .row.g-4 > [class*="col-"] {
+        align-self: flex-start;
+      }
   </style>
 </head>
+
 <body>
 
   <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
   <div class="top-strip py-2 d-none d-lg-block">
     <div class="container d-flex justify-content-between align-items-center">
       <div>
-        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
-        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+        <span class="me-4">
+          <i class="bi bi-envelope-fill me-1 text-success"></i>
+          info@paramountsteel.com.ng
+        </span>
+
+        <span>
+          <i class="bi bi-telephone-fill me-1 text-success"></i>
+          08033459759 / 08020630066
+        </span>
       </div>
+
       <div>
         <span class="badge bg-success font-monospace">BN: 2200741</span>
       </div>
@@ -208,44 +326,116 @@
   <div class="sticky-top-header">
     <nav class="navbar navbar-expand-lg navbar-paramount py-2">
       <div class="container">
+
         <a class="navbar-brand" href="index.html">
-          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+          <img
+            class="header-logo"
+            src="Images/paramount-logo.png"
+            alt="Paramount Steel Logo"
+          >
         </a>
 
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#paramountNav"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="paramountNav">
           <ul class="navbar-nav ms-auto align-items-lg-center">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            
-            <!-- MEGA MENU LINKED DIRECTLY TO IN-PAGE CATEGORIES -->
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Products Catalog</a>
-              <div class="dropdown-menu mega-menu p-4">
-                <div class="row g-4">
-                  <div class="col-md-6 border-end">
-                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
-                    <a onclick="filterCategory('plates-section')"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
-                    <a onclick="filterCategory('beams-section')"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
-                    <a onclick="filterCategory('bars-section')"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
-                  </div>
-                  <div class="col-md-6">
-                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
-                    <a onclick="filterCategory('pipes-section')"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
-                    <a onclick="filterCategory('stainless-section')"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
-                    <a onclick="filterCategory('aluminum-section')"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
-                  </div>
-                </div>
-              </div>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
             </li>
 
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Get in Touch</a></li>
-            <li class="nav-item ms-lg-3"><a href="get-a-quote.html" class="btn btn-brand-green btn-sm">Get a Quote</a></li>
+            <!-- MEGA MENU LINKED DIRECTLY TO IN-PAGE CATEGORIES -->
+            <li class="nav-item dropdown position-static">
+
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                Products Catalog
+              </a>
+
+              <div class="dropdown-menu mega-menu p-4">
+                <div class="row g-4">
+
+                  <div class="col-md-6 border-end">
+
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">
+                      1. Structural & Commercial Steel
+                    </h6>
+
+                    <a onclick="filterCategory('plates-section')">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Mild & Checker Steel Plates
+                    </a>
+
+                    <a onclick="filterCategory('beams-section')">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Universal I-Beams & C-Channels
+                    </a>
+
+                    <a onclick="filterCategory('bars-section')">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Angle, Flat & Solid Round Bars
+                    </a>
+
+                  </div>
+
+                  <div class="col-md-6">
+
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">
+                      2. Piping & Specialty Metals
+                    </h6>
+
+                    <a onclick="filterCategory('pipes-section')">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Seamless Pipes & Hollow Sections
+                    </a>
+
+                    <a onclick="filterCategory('stainless-section')">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Stainless Steel Sheets & Profiles
+                    </a>
+
+                    <a onclick="filterCategory('aluminum-section')">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Aluminum Stock & Industrial Coils
+                    </a>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Get in Touch</a>
+            </li>
+
+            <li class="nav-item ms-lg-3">
+              <a
+                href="get-a-quote.html"
+                class="btn btn-brand-green btn-sm"
+              >
+                Get a Quote
+              </a>
+            </li>
+
           </ul>
         </div>
+
       </div>
     </nav>
   </div>
@@ -253,13 +443,44 @@
   <!-- ==================== FILTER BAR ==================== -->
   <section class="py-4 bg-light border-bottom">
     <div class="container text-center">
-      <h1 class="fw-bold text-uppercase mb-3" style="color: var(--brand-navy);">Steel Product Inventory</h1>
-      <p class="text-muted fs-7 mb-4">Click any filter or subcategory link to reveal its image grid on this page:</p>
+
+      <h1
+        class="fw-bold text-uppercase mb-3"
+        style="color: var(--brand-navy);"
+      >
+        Steel Product Inventory
+      </h1>
+
+      <p class="text-muted fs-7 mb-4">
+        Click any filter or subcategory link to reveal its image grid on this page:
+      </p>
 
       <div class="d-flex flex-wrap justify-content-center gap-2">
-        <button class="btn btn-filter active" id="btn-all" onclick="showAll()">Show All Products</button>
-        <button class="btn btn-filter" id="btn-structural" onclick="filterGroup('structural')">Structural & Commercial Steel</button>
-        <button class="btn btn-filter" id="btn-piping" onclick="filterGroup('piping')">Piping & Specialty Metals</button>
+
+        <button
+          class="btn btn-filter active"
+          id="btn-all"
+          onclick="showAll()"
+        >
+          Show All Products
+        </button>
+
+        <button
+          class="btn btn-filter"
+          id="btn-structural"
+          onclick="filterGroup('structural')"
+        >
+          Structural & Commercial Steel
+        </button>
+
+        <button
+          class="btn btn-filter"
+          id="btn-piping"
+          onclick="filterGroup('piping')"
+        >
+          Piping & Specialty Metals
+        </button>
+
       </div>
     </div>
   </section>
@@ -270,229 +491,1305 @@
 
       <!-- ================= GROUP 1 ================= -->
       <div class="group-container" id="group-structural">
+
         <div class="division-header-banner">
-          <h2 class="m-0 text-uppercase fw-bold fs-4"><i class="bi bi-building me-2"></i> Division 1: Structural & Commercial Steel</h2>
+          <h2 class="m-0 text-uppercase fw-bold fs-4">
+            <i class="bi bi-building me-2"></i>
+            Division 1: Structural & Commercial Steel
+          </h2>
         </div>
 
         <!-- 1.1 MILD & CHECKER STEEL PLATES -->
         <div class="mb-5 product-row" id="plates-section">
-          <div class="category-section-title">Mild & Checker Steel Plates</div>
+
+          <div class="category-section-title">
+            Mild & Checker Steel Plates
+          </div>
+
           <div class="row g-4">
+
+            <!-- MILD STEEL PLATES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Mild Steel Plate">
+
+                <img
+                  src="Images/Mild steel plate.jpg"
+                  alt="Mild Steel Plate"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">MILD STEEL PLATES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    MILD STEEL PLATES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-ms-plate-1"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>1.5mm - 50mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Standard:</td>
+                      <td>ASTM A36 / S275JR</td>
+                    </tr>
+
+                    <tr>
+                      <td>Width:</td>
+                      <td>1220mm / 1500mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Length:</td>
+                      <td>2440mm / 6000mm</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Mild+Steel+Plates"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- CHECKER FLOOR PLATES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Checker Plate">
+
+                <img
+                  src="Images/Checker floor steel pate.jpg"
+                  alt="Checker Plate"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">CHECKER FLOOR PLATES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    CHECKER FLOOR PLATES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-checker-plate-2"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Pattern:</td>
+                      <td>Tear Drop / Diamond</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>2.0mm - 12mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>S235JR / SS400</td>
+                    </tr>
+
+                    <tr>
+                      <td>Application:</td>
+                      <td>Industrial Flooring</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Checker+Floor+Plates"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="High Tensile Plate">
+
+                <img
+                  src="Images/corten-steel-plate.jpg"
+                  alt="Corten Steel Plate"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">HIGH-TENSILE PLATES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    CORTEN STEEL PLATES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-corten-plate-3"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>COR-TEN A/B / S355J2WP</td>
+                    </tr>
+
+                    <tr>
+                      <td>Feature:</td>
+                      <td>Atmospheric Corrosion Resistance</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>1.5mm - 20mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Use:</td>
+                      <td>Architectural Facades & Containers</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Corten+Steel+Plates"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- BOILER PLATES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Boiler Plate">
+
+                <img
+                  src="Images/boiler-plate.jpg"
+                  alt="Boiler Plate"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">BOILER & PRESSURE PLATES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    BOILER & PRESSURE PLATES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-boiler-plate-4"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>ASTM A516 Gr 60/70</td>
+                    </tr>
+
+                    <tr>
+                      <td>Temp:</td>
+                      <td>High Temperature</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>8mm - 60mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Cert:</td>
+                      <td>EN 10204 3.1</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Boiler+Plates"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
+
 
         <!-- 1.2 UNIVERSAL BEAMS & C-CHANNELS -->
         <div class="mb-5 product-row" id="beams-section">
-          <div class="category-section-title">Universal I-Beams & C-Channels</div>
+
+          <div class="category-section-title">
+            Universal I-Beams & C-Channels
+          </div>
+
           <div class="row g-4">
+
+            <!-- I-BEAMS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="I-Beams">
+
+                <img
+                  src="Images/I-beams.jpg"
+                  alt="I-Beams"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">UNIVERSAL I-BEAMS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    UNIVERSAL I-BEAMS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-ibeams-5"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Depth:</td>
+                      <td>100mm - 600mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Standard:</td>
+                      <td>BS 4-1 / UB Series</td>
+                    </tr>
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>S275JR / S355JR</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Universal+I-Beams"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- C-CHANNELS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="C-Channels">
+
+                <img
+                  src="Images/structural-c-channels.jpg"
+                  alt="C-Channels"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">STRUCTURAL C-CHANNELS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    STRUCTURAL C-CHANNELS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-cchannels-6"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>75x40mm - 300x90mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Profile:</td>
+                      <td>UPE / UPN / PFC</td>
+                    </tr>
+
+                    <tr>
+                      <td>Length:</td>
+                      <td>6m / 12m Stock</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Structural+C-Channels"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- H-COLUMNS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="H-Columns">
+
+                <img
+                  src="Images/heavy-columns.jpg"
+                  alt="H-Columns"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">HEAVY H-COLUMNS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    HEAVY H-COLUMNS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-hcolumns-7"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Profile:</td>
+                      <td>UC / HEA / HEB</td>
+                    </tr>
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>150mm - 400mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Usage:</td>
+                      <td>Columns & Foundations</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Heavy+H-Columns"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- PARALLEL CHANNELS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Parallel Channels">
+
+                <img
+                  src="Images/parallel-channels.jpg"
+                  alt="Parallel Channels"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">PARALLEL CHANNELS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    PARALLEL CHANNELS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-parallel-channels-8"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Type:</td>
+                      <td>Parallel Flange (PFC)</td>
+                    </tr>
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>S275 / S355</td>
+                    </tr>
+
+                    <tr>
+                      <td>Finish:</td>
+                      <td>Self-Color / Primed</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Parallel+Channels"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
+
 
         <!-- 1.3 ANGLE, FLAT & SOLID BARS -->
         <div class="mb-5 product-row" id="bars-section">
-          <div class="category-section-title">Angle, Flat & Solid Round Bars</div>
+
+          <div class="category-section-title">
+            Angle, Flat & Solid Round Bars
+          </div>
+
           <div class="row g-4">
+
+            <!-- ANGLE BARS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Angle Bars">
+
+                <img
+                  src="Images/equal-angle-bars.jpg "
+                  alt="Angle Bars"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">EQUAL ANGLE BARS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    EQUAL ANGLE BARS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-angle-bars-9"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>25x25mm - 200x200mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>3mm - 20mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Standard:</td>
+                      <td>EN 10056 / ASTM A36</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Equal+Angle+Bars"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- FLAT BARS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Flat Bars">
+
+                <img
+                  src="Images/Mild steel.jpg"
+                  alt="Flat Bars"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">MILD STEEL FLAT BARS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    MILD STEEL FLAT BARS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-flat-bars-10"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Width:</td>
+                      <td>12mm - 150mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>3mm - 25mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Length:</td>
+                      <td>6 Meters</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=MS+Flat+Bars"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- SQUARE BARS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Square Bars">
+
+                <img
+                  src="Images/Ms square bar.jpg"
+                  alt="Square Bars"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">MS SQUARE BAR</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    MS SQUARE BAR
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-square-bars-11"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>10x10mm - 50x50mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Process:</td>
+                      <td>Hot Rolled / Cold Drawn</td>
+                    </tr>
+
+                    <tr>
+                      <td>Usage:</td>
+                      <td>Grilles & Machinery</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=MS+Square+Bars"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- ROUND SHAFTS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Round Shafts">
+
+                <img
+                  src="Images/Solid round shaft.jpg"
+                  alt="Round Shafts"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">SOLID ROUND SHAFTS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    SOLID ROUND SHAFTS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-round-shafts-12"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Diameter:</td>
+                      <td>6mm - 300mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>EN8 / EN19 / Mild Steel</td>
+                    </tr>
+
+                    <tr>
+                      <td>Finish:</td>
+                      <td>Bright / Black Shaft</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Solid+Round+Shafts"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
+
 
       <!-- ================= GROUP 2 ================= -->
       <div class="group-container" id="group-piping">
+
         <div class="division-header-banner">
-          <h2 class="m-0 text-uppercase fw-bold fs-4"><i class="bi bi-gear-wide-connected me-2"></i> Division 2: Piping & Specialty Metals</h2>
+          <h2 class="m-0 text-uppercase fw-bold fs-4">
+            <i class="bi bi-gear-wide-connected me-2"></i>
+            Division 2: Piping & Specialty Metals
+          </h2>
         </div>
+
 
         <!-- 2.1 PIPES -->
         <div class="mb-5 product-row" id="pipes-section">
-          <div class="category-section-title">Seamless Pipes & Hollow Sections</div>
+
+          <div class="category-section-title">
+            Seamless Pipes & Hollow Sections
+          </div>
+
           <div class="row g-4">
+
+            <!-- API SEAMLESS PIPES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="API Pipes">
+
+                <img
+                  src="Images/api-seamless-pipe.jpg"
+                  alt="API Pipes"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">API SEAMLESS PIPES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    API SEAMLESS PIPES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-api-pipes-13"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Spec:</td>
+                      <td>API 5L Gr B / ASTM A106</td>
+                    </tr>
+
+                    <tr>
+                      <td>Schedule:</td>
+                      <td>SCH 40 / 80 / 160 / XXS</td>
+                    </tr>
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>1/2" to 24" Nominal</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=API+Seamless+Pipes"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- ERW BLACK PIPES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="ERW Black Pipes">
+
+                <img
+                  src="Images/mild-steel-fittings.jpg"
+                  alt="mild steel fittings"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">ERW BLACK PIPES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    MILD STEEL FITTINGS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-erw-pipes-14"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Standard:</td>
+                      <td>BS 1387 / EN 10255</td>
+                    </tr>
+
+                    <tr>
+                      <td>Class:</td>
+                      <td>Light / Medium / Heavy</td>
+                    </tr>
+
+                    <tr>
+                      <td>Ends:</td>
+                      <td>Plain / Beveled / Threaded</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=ERW+Black+Pipes"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- SQUARE HOLLOW PIPES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Square Pipes">
+
+                <img
+                  src="Images/square-hollow-pipes.jpg"
+                  alt="Square Pipes"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">SQUARE HOLLOW PIPES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    SQUARE HOLLOW PIPES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-square-pipes-15"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>15x15mm - 200x200mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>1.2mm - 10mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Standard:</td>
+                      <td>EN 10219 / SHS</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Square+Hollow+Pipes"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- RECTANGULAR TUBES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Rectangular Tubes">
+
+                <img
+                  src="Images/stainless-fittings.jpg"
+                  alt="Stainless Fittings"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">RECTANGULAR TUBES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    STAINLESS FITTINGS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-rect-tubes-16"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Size:</td>
+                      <td>40x20mm - 200x100mm</td>
+                    </tr>
+
+                    <tr>
+                      <td>Profile:</td>
+                      <td>RHS Structural Tube</td>
+                    </tr>
+
+                    <tr>
+                      <td>Length:</td>
+                      <td>6 Meters</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Rectangular+Tubes"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
 
+
         <!-- 2.2 STAINLESS STEEL -->
         <div class="mb-5 product-row" id="stainless-section">
-          <div class="category-section-title">Stainless Steel Sheets & Profiles</div>
+
+          <div class="category-section-title">
+            Stainless Steel Sheets & Profiles
+          </div>
+
           <div class="row g-4">
+
+            <!-- STAINLESS SHEETS -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Stainless Sheets">
+
+                <img
+                  src="Images/stainless-steel-sheets.jpg"
+                  alt="Stainless Sheets"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">304/316 STAINLESS SHEETS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    STAINLESS SHEETS
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-ss-sheets-17"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>304 / 304L / 316L</td>
+                    </tr>
+
+                    <tr>
+                      <td>Finish:</td>
+                      <td>2B / BA / No. 4 / Mirror</td>
+                    </tr>
+
+                    <tr>
+                      <td>Thickness:</td>
+                      <td>0.5mm - 20mm</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Stainless+Steel+Sheets"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
+
+            <!-- STAINLESS PIPES -->
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Stainless Pipes">
+
+                <img
+                  src="Images/stainless-pipes.jpg"
+                  alt="SS Pipes"
+                >
+
                 <div class="catalog-card-body">
-                  <h5 class="catalog-card-title">STAINLESS SEAMLESS PIPES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+
+                  <h5 class="catalog-card-title">
+                    STAINLESS PIPES
+                  </h5>
+
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+
                 </div>
+
+                <div
+                  class="product-spec-drawer"
+                  id="spec-ss-pipes-18"
+                >
+
+                  <table class="table table-sm table-borderless spec-table">
+
+                    <tr>
+                      <td>Type:</td>
+                      <td>Seamless / Welded</td>
+                    </tr>
+
+                    <tr>
+                      <td>Grade:</td>
+                      <td>TP304 / TP316L</td>
+                    </tr>
+
+                    <tr>
+                      <td>Standard:</td>
+                      <td>ASTM A312 / A269</td>
+                    </tr>
+
+                  </table>
+
+                  <a
+                    href="get-a-quote.html?product=Stainless+Pipes"
+                    class="btn btn-brand-green btn-sm w-100 py-1 fs-8"
+                  >
+                    Request Quote
+                  </a>
+
+                </div>
+
               </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Stainless Angles">
+                <img src="Images/stainless-angle-bars.jpg" alt="Stainless Angles">
                 <div class="catalog-card-body">
                   <h5 class="catalog-card-title">STAINLESS ANGLE BARS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                </div>
+                <div class="collapse product-spec-drawer" id="spec-ss-angles-19">
+                  <table class="table table-sm table-borderless spec-table">
+                    <tr><td>Size:</td><td>20x20mm - 100x100mm</td></tr>
+                    <tr><td>Grade:</td><td>304 / 316 Stainless</td></tr>
+                    <tr><td>Process:</td><td>Hot Rolled / Acid Pickled</td></tr>
+                  </table>
+                  <a href="get-a-quote.html?product=Stainless+Angle+Bars" class="btn btn-brand-green btn-sm w-100 py-1 fs-8">Request Quote</a>
                 </div>
               </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Stainless Rods">
+                <img src="Images/stainless-round-rods.jpg" alt="Stainless Rods">
                 <div class="catalog-card-body">
                   <h5 class="catalog-card-title">STAINLESS ROUND RODS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                </div>
+                <div class="collapse product-spec-drawer" id="spec-ss-rods-20">
+                  <table class="table table-sm table-borderless spec-table">
+                    <tr><td>Diameter:</td><td>3mm - 150mm</td></tr>
+                    <tr><td>Grade:</td><td>303 / 304 / 316 / 410</td></tr>
+                    <tr><td>Finish:</td><td>Bright Annealed / Polished</td></tr>
+                  </table>
+                  <a href="get-a-quote.html?product=Stainless+Round+Rods" class="btn btn-brand-green btn-sm w-100 py-1 fs-8">Request Quote</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -500,115 +1797,235 @@
         <div class="mb-5 product-row" id="aluminum-section">
           <div class="category-section-title">Aluminum Stock & Industrial Coils</div>
           <div class="row g-4">
+            
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Aluminum Sheets">
+                <img src="Images/aluminium-steel-plates.jpg" alt="Aluminum Sheets">
                 <div class="catalog-card-body">
                   <h5 class="catalog-card-title">ALUMINUM PLAIN SHEETS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                </div>
+                <div class="collapse product-spec-drawer" id="spec-alum-sheets-21">
+                  <table class="table table-sm table-borderless spec-table">
+                    <tr><td>Alloy Grade:</td><td>AA1050 / AA3003 / AA6061</td></tr>
+                    <tr><td>Temper:</td><td>O / H14 / H24 / T6</td></tr>
+                    <tr><td>Thickness:</td><td>0.4mm - 6.0mm</td></tr>
+                  </table>
+                  <a href="get-a-quote.html?product=Aluminum+Plain+Sheets" class="btn btn-brand-green btn-sm w-100 py-1 fs-8">Request Quote</a>
                 </div>
               </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Stucco Coils">
+                <img src="Images/stucco-embossed-coils.jpg" alt="Stucco Coils">
                 <div class="catalog-card-body">
                   <h5 class="catalog-card-title">STUCCO EMBOSSED COILS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                </div>
+                <div class="collapse product-spec-drawer" id="spec-stucco-coils-22">
+                  <table class="table table-sm table-borderless spec-table">
+                    <tr><td>Pattern:</td><td>Classic Stucco Embossed</td></tr>
+                    <tr><td>Coil Width:</td><td>1000mm / 1220mm</td></tr>
+                    <tr><td>Application:</td><td>HVAC & Insulation Cladding</td></tr>
+                  </table>
+                  <a href="get-a-quote.html?product=Stucco+Embossed+Coils" class="btn btn-brand-green btn-sm w-100 py-1 fs-8">Request Quote</a>
                 </div>
               </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop" alt="Aluminum Checker">
+                <img src="Images/aluminium-checker-plate.jpg" alt="Aluminum Checker">
                 <div class="catalog-card-body">
                   <h5 class="catalog-card-title">ALUMINUM CHECKER PLATES</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                </div>
+                <div class="collapse product-spec-drawer" id="spec-alum-checker-23">
+                  <table class="table table-sm table-borderless spec-table">
+                    <tr><td>Pattern:</td><td>5-Bar Tread / Propeller</td></tr>
+                    <tr><td>Thickness:</td><td>1.5mm - 6.0mm</td></tr>
+                    <tr><td>Alloy:</td><td>5754 / 6082 Grade</td></tr>
+                  </table>
+                  <a href="get-a-quote.html?product=Aluminum+Checker+Plates" class="btn btn-brand-green btn-sm w-100 py-1 fs-8">Request Quote</a>
                 </div>
               </div>
             </div>
+
             <div class="col-lg-3 col-md-6">
               <div class="catalog-card h-100">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Aluminum Extrusions">
+                <img src="Images/aluminium-extrusions.jpg" alt="Aluminum Extrusions">
                 <div class="catalog-card-body">
                   <h5 class="catalog-card-title">ALUMINUM EXTRUSIONS</h5>
-                  <a href="get-a-quote.html" class="catalog-card-link">Request Quote <i class="bi bi-arrow-up-right"></i></a>
+                  <button
+                    class="catalog-card-btn"
+                    type="button"
+                    onclick="toggleSpecs(this)"
+                    aria-expanded="false"
+                  >
+                    View Specifications
+                    <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                </div>
+                <div class="collapse product-spec-drawer" id="spec-alum-extrusions-24">
+                  <table class="table table-sm table-borderless spec-table">
+                    <tr><td>Shapes:</td><td>Angles, Channels, Tubes</td></tr>
+                    <tr><td>Alloy:</td><td>6063-T5 / 6061-T6</td></tr>
+                    <tr><td>Finish:</td><td>Mill / Anodized / Powder Coated</td></tr>
+                  </table>
+                  <a href="get-a-quote.html?product=Aluminum+Extrusions" class="btn btn-brand-green btn-sm w-100 py-1 fs-8">Request Quote</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
 
     </div>
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
+    <!-- ==================== FOOTER ==================== -->
   <footer class="bg-dark text-white pt-5 pb-4">
+
     <div class="container text-center">
-      <p class="mb-0 fs-7 text-white-50">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+
+      <p class="mb-0 fs-7 text-white-50">
+        &copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.
+      </p>
+
     </div>
+
   </footer>
 
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
 
-  <!-- JavaScript -->
+  <!-- Floating WhatsApp Button -->
+  <a
+    href="https://wa.me/248033459759"
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Chat on WhatsApp"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+
+  <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const allGroups = ['group-structural', 'group-piping'];
-    const allRows = ['plates-section', 'beams-section', 'bars-section', 'pipes-section', 'stainless-section', 'aluminum-section'];
 
-    // 1. Reset and Show Everything
+
+  <!-- Optional Script for dynamic tab/filter handling -->
+  <script>
+
     function showAll() {
-      allGroups.forEach(id => document.getElementById(id).style.display = 'block');
-      allRows.forEach(id => document.getElementById(id).style.display = 'block');
-      
-      document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
-      document.getElementById('btn-all').classList.add('active');
+      document
+        .querySelectorAll('.group-container')
+        .forEach(el => el.style.display = 'block');
+
+      document
+        .querySelectorAll('.btn-filter')
+        .forEach(btn => btn.classList.remove('active'));
+
+      document
+        .getElementById('btn-all')
+        .classList.add('active');
     }
 
-    // 2. Filter Main Group (Structural vs Piping)
-    function filterGroup(category) {
-      showAll();
-      document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
 
-      if (category === 'structural') {
-        document.getElementById('group-structural').style.display = 'block';
-        document.getElementById('group-piping').style.display = 'none';
-        document.getElementById('btn-structural').classList.add('active');
-      } else if (category === 'piping') {
-        document.getElementById('group-structural').style.display = 'none';
-        document.getElementById('group-piping').style.display = 'block';
-        document.getElementById('btn-piping').classList.add('active');
+    function filterGroup(groupId) {
+      document
+        .querySelectorAll('.group-container')
+        .forEach(el => el.style.display = 'none');
+
+      document
+        .getElementById('group-' + groupId)
+        .style.display = 'block';
+
+      document
+        .querySelectorAll('.btn-filter')
+        .forEach(btn => btn.classList.remove('active'));
+
+      document
+        .getElementById('btn-' + groupId)
+        .classList.add('active');
+    }
+
+
+    function filterCategory(sectionId) {
+      showAll();
+
+      const el = document.getElementById(sectionId);
+
+      if (el) {
+        el.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }
 
-    // 3. Filter Specific Sub-Category Row when clicking Nav links (e.g. Mild & Checker Steel Plates)
-    function filterCategory(targetRowId) {
-      // Unhide both main groups
-      allGroups.forEach(id => document.getElementById(id).style.display = 'block');
-      
-      // Hide all product rows except the clicked target
-      allRows.forEach(id => {
-        const row = document.getElementById(id);
-        if (id === targetRowId) {
-          row.style.display = 'block';
-        } else {
-          row.style.display = 'none';
+
+    /* =========================================
+       PRODUCT SPECIFICATION DROPDOWN
+       ========================================= */
+
+    function toggleSpecs(button) {
+      const card = button.closest('.catalog-card');
+      if (!card) return;
+
+      const drawer = card.querySelector('.product-spec-drawer');
+      if (!drawer) return;
+
+      const wasOpen = drawer.classList.contains('show');
+
+      // Close every product specification first.
+      document.querySelectorAll('.catalog-card').forEach(function(otherCard) {
+        const otherDrawer = otherCard.querySelector('.product-spec-drawer');
+        const otherButton = otherCard.querySelector('.catalog-card-btn');
+
+        if (otherDrawer) {
+          otherDrawer.classList.remove('show');
+        }
+
+        if (otherButton) {
+          otherButton.classList.remove('active');
+          otherButton.setAttribute('aria-expanded', 'false');
         }
       });
 
-      // Close mobile dropdown menu if open
-      const navbarCollapse = document.getElementById('paramountNav');
-      if (navbarCollapse.classList.contains('show')) {
-        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-        bsCollapse.hide();
+      // Open ONLY the drawer belonging to the clicked card.
+      if (!wasOpen) {
+        drawer.classList.add('show');
+        button.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
       }
-
-      // Smooth scroll down to the inventory section
-      document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
     }
+
   </script>
+
 </body>
 </html>

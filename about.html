@@ -25,6 +25,7 @@
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: #0f172a;
       background-color: #ffffff;
+      overflow-x: hidden;
     }
 
     /* Top Strip */
@@ -59,48 +60,122 @@
       padding-bottom: 0.25rem !important;
     }
     .header-logo {
-      height: auto;
-      max-height: 80px;
+      max-height: 60px;
       width: auto;
-      max-width: 160px;
-      object-fit: contain;
-      display: block;
     }
+    @media (min-width: 768px) {
+      .header-logo {
+        max-height: 80px;
+      }
+    }
+
     .navbar-paramount .nav-link {
       color: #ffffff;
       font-weight: 600;
       font-size: 0.88rem;
-      padding: 1rem 1rem !important;
+      padding: 0.6rem 1rem !important;
       transition: color 0.2s;
     }
     .navbar-paramount .nav-link:hover, 
     .navbar-paramount .nav-link.active {
       color: var(--brand-green);
     }
+    /* Enable dropdown opening on hover for desktop screens */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* Ensures smooth transition with no gap */
+      }
+    }
 
-    /* Mega Menu Dropdown */
-    .mega-menu {
-      width: 650px;
+    .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      padding: 0.4rem 0.6rem;
+    }
+    .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+    .navbar-toggler:hover {
+      border-color: #008751 !important;
+    }
+
+    /* Standard Dropdown Styling */
+    .dropdown-menu {
       border: none;
-      border-top: 4px solid var(--brand-green);
-      border-radius: 0;
+      border-top: 4px solid var(--brand-green) !important;
+      border-radius: 0 !important;
       box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
       background: #ffffff;
     }
+
+    /* Mega Menu - General & Mobile Defaults */
+    .mega-menu {
+      width: 100% !important;
+      max-width: 100% !important;
+      background-color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 3px solid var(--brand-green) !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      max-height: 50vh; /* Keeps mobile view scrollable */
+      overflow-y: auto;
+    }
+
     .mega-menu a {
       color: #334155;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.4rem 0;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.45rem 0.5rem;
       display: block;
+      border-radius: 4px;
+      cursor: pointer;
       transition: all 0.2s;
     }
+    
     .mega-menu a:hover {
       color: var(--brand-green);
-      padding-left: 6px;
+      background-color: #f8fafc;
+      padding-left: 0.8rem;
     }
+
+    .border-md-end {
+      border-right: none !important;
+    }
+/* Fix parent container positioning */
+    .navbar-paramount .nav-item.dropdown {
+      position: relative;
+    }
+
+    /* Mega Menu - Desktop Behavior */
     @media (min-width: 992px) {
+      .mega-menu {
+        width: 650px !important;
+        max-width: calc(100vw - 2rem) !important; /* Prevents edge-overflow */
+        background-color: #ffffff !important;
+        border: 1px solid var(--border-sharp) !important;
+        border-top: 4px solid var(--brand-green) !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        position: absolute;
+        top: 100%;
+        left: 0 !important; /* Align with dropdown parent instead of pushing right */
+        right: auto !important;
+        max-height: 80vh;
+      }
+
+      .mega-menu a {
+        color: #334155;
+      }
+
+      .mega-menu a:hover {
+        color: var(--brand-green);
+        background-color: #f8fafc;
+      }
+
+      .border-md-end {
+        border-right: 1px solid #e2e8f0 !important;
+      }
+
       .dropdown:hover .mega-menu {
         display: block;
       }
@@ -112,12 +187,17 @@
                   url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
-      padding: 80px 0 60px;
+      padding: 50px 0 40px;
       color: #ffffff;
       border-bottom: 3px solid var(--brand-green);
     }
+    @media (min-width: 768px) {
+      .page-header {
+        padding: 80px 0 60px;
+      }
+    }
 
-    /* Sharp Custom Buttons */
+    /* Custom Buttons */
     .btn-brand-green {
       background-color: var(--brand-green);
       color: #ffffff !important;
@@ -149,7 +229,7 @@
       border: 1px solid var(--border-sharp);
       border-top: 4px solid var(--brand-green);
       background: #ffffff;
-      padding: 2rem;
+      padding: 1.5rem;
       transition: all 0.3s ease;
       height: 100%;
     }
@@ -159,24 +239,51 @@
     }
 
     .icon-box-circle {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       background-color: rgba(0, 135, 81, 0.1);
       color: var(--brand-green);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin-bottom: 1.25rem;
+    }
+
+    /* Responsive Overlay Badge */
+    .hero-badge-overlay {
+      background-color: var(--brand-green);
+      color: #ffffff;
+      padding: 1rem;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    @media (min-width: 992px) {
+      .hero-badge-overlay {
+        position: absolute;
+        bottom: 1.5rem;
+        right: -1rem;
+        width: auto;
+        max-width: 260px;
+        margin-top: 0;
+      }
     }
 
     /* CTA Section */
     .cta-banner {
       background-color: var(--brand-navy);
       color: #ffffff;
-      padding: 80px 0;
+      padding: 50px 0;
       border-top: 4px solid var(--brand-green);
+    }
+    @media (min-width: 768px) {
+      .cta-banner {
+        padding: 80px 0;
+      }
     }
 
     /* Footer */
@@ -197,17 +304,17 @@
     /* Floating WhatsApp Button */
     .whatsapp-float {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 55px;
-      height: 55px;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
       background-color: #25d366;
       color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       z-index: 1000;
       text-decoration: none;
@@ -227,8 +334,8 @@
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
         <div>
-          <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
-          <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+          <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> info@paramountsteel.com</span>
+          <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08033459759 / 08020630066</span>
         </div>
         <div class="d-flex align-items-center gap-3">
           <span class="badge bg-success font-monospace">BN: 2200741</span>
@@ -248,10 +355,10 @@
       <div class="container">
         
         <a class="navbar-brand" href="index.html">
-          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+          <img class="header-logo" src="Images/paramount-logo.png" alt="Paramount Steel Logo">
         </a>
 
-        <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -270,40 +377,60 @@
                 <li><a class="dropdown-item py-2 fw-semibold" href="quality.html">Quality Assurance</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown position-static">
+
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="products.html" data-bs-toggle="dropdown">Products Catalog</a>
-              <div class="dropdown-menu mega-menu p-4">
-                <div class="row g-4">
-                  <div class="col-md-6 border-end">
-                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
-                    <a href="products.html#plates-section"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
-                    <a href="products.html#beams-section"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
-                    <a href="products.html#bars-section"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
+              <div class="dropdown-menu mega-menu p-3 p-md-4">
+                <div class="row g-3 g-md-4">
+                  <!-- Section 1 -->
+                  <div class="col-12 col-md-6 border-md-end mb-3 mb-md-0">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-2 mb-md-3">1. Structural & Commercial Steel</h6>
+                    <div class="d-flex flex-column gap-1">
+                      <a class="dropdown-item text-wrap ps-2" href="products.html#plates-section">
+                        <i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates
+                      </a>
+                      <a class="dropdown-item text-wrap ps-2" href="products.html#beams-section">
+                        <i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels
+                      </a>
+                      <a class="dropdown-item text-wrap ps-2" href="products.html#bars-section">
+                        <i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars
+                      </a>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
-                    <a href="products.html#pipes-section"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
-                    <a href="products.html#stainless-section"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
-                    <a href="products.html#aluminum-section"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
+                  
+                  <!-- Section 2 -->
+                  <div class="col-12 col-md-6 ps-md-4">
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-2 mb-md-3">2. Piping & Specialty Metals</h6>
+                    <div class="d-flex flex-column gap-1">
+                      <a class="dropdown-item text-wrap ps-2" href="products.html#pipes-section">
+                        <i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections
+                      </a>
+                      <a class="dropdown-item text-wrap ps-2" href="products.html#stainless-section">
+                        <i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles
+                      </a>
+                      <a class="dropdown-item text-wrap ps-2" href="products.html#aluminum-section">
+                        <i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="quality.html">Sustainability</a>
+              <a class="nav-link" href="sustainability.html">Sustainability</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="about.html">Brand Values</a>
+              <a class="nav-link" href="brand-values.html">Brand Values</a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Get in Touch</a>
             </li>
 
-            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-              <a href="get-a-quote.html" class="btn btn-brand-green btn-sm">
+            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+              <a href="get-a-quote.html" class="btn btn-brand-green btn-sm w-100 w-lg-auto text-center">
                 Get a Quote
               </a>
             </li>
@@ -315,13 +442,13 @@
     </nav>
   </div>
 
-  <!-- ==================== PAGE BREADCRUMB HEADER ==================== -->
+  <!-- ==================== PAGE HEADER ==================== -->
   <section class="page-header">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <span class="badge bg-success text-uppercase px-3 py-2 fw-bold mb-3">Corporate Overview</span>
-          <h1 class="display-4 fw-black text-uppercase mb-2">Company Profile</h1>
+          <span class="badge bg-success text-uppercase px-3 py-2 fw-bold mb-2 fs-8">Corporate Overview</span>
+          <h1 class="display-6 display-md-4 fw-black text-uppercase mb-2">Company Profile</h1>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
@@ -335,13 +462,13 @@
   </section>
 
   <!-- ==================== MAIN COMPANY INTRODUCTION ==================== -->
-  <section class="py-5" style="background-color: #ffffff;">
-    <div class="container py-4">
-      <div class="row g-5 align-items-center">
+  <section class="py-4 py-md-5" style="background-color: #ffffff;">
+    <div class="container py-2 py-md-4">
+      <div class="row g-4 g-lg-5 align-items-center">
         
         <div class="col-lg-6">
-          <span class="badge bg-light text-success border border-success mb-3 px-3 py-2 fw-bold text-uppercase">Who We Are</span>
-          <h2 class="display-6 fw-bold mb-3" style="color: var(--brand-navy);">
+        <span class="badge bg-success-subtle text-success border border-2 border-success mb-3 px-4 py-2 fs-6 fw-bolder text-uppercase">Who We Are</span>
+          <h2 class="h2 h1-md fw-bold mb-3" style="color: var(--brand-navy);">
             Nigeria's Direct Importer & <span class="text-success">Heavy Steel Stockist</span>
           </h2>
           <p class="text-muted leading-relaxed mb-3">
@@ -360,8 +487,8 @@
 
         <div class="col-lg-6">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded shadow-lg" alt="Steel Industrial Stockyard">
-            <div class="bg-success text-white p-4 position-absolute bottom-0 end-0 translate-middle-y me-lg-n4 d-none d-md-block shadow" style="max-width: 280px;">
+            <img src="Images/Universal beams.jpg" class="img-fluid rounded shadow-lg w-100" alt="Steel Industrial Stockyard">
+            <div class="hero-badge-overlay text-center text-lg-start rounded">
               <h3 class="fw-bold mb-0">100%</h3>
               <p class="mb-0 fs-7 text-uppercase font-monospace fw-semibold">Certified Mill Test Compliance Standard</p>
             </div>
@@ -373,16 +500,16 @@
   </section>
 
   <!-- ==================== MISSION, VISION & VALUES ==================== -->
-  <section class="py-5" style="background-color: var(--bg-light);">
-    <div class="container py-3">
-      <div class="text-center mb-5">
-        <h2 class="display-6 fw-bold text-uppercase" style="color: var(--brand-navy);">Our Strategic Foundations</h2>
+  <section class="py-4 py-md-5" style="background-color: var(--bg-light);">
+    <div class="container py-2 py-md-3">
+      <div class="text-center mb-4 mb-md-5">
+        <h2 class="h2 h1-md fw-bold text-uppercase" style="color: var(--brand-navy);">Our Strategic Foundations</h2>
         <div class="mx-auto" style="width: 60px; height: 3px; background-color: var(--brand-green);"></div>
       </div>
 
       <div class="row g-4">
         <!-- Mission -->
-        <div class="col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-card">
             <div class="icon-box-circle">
               <i class="bi bi-compass-fill"></i>
@@ -395,7 +522,7 @@
         </div>
 
         <!-- Vision -->
-        <div class="col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-card">
             <div class="icon-box-circle">
               <i class="bi bi-eye-fill"></i>
@@ -408,7 +535,7 @@
         </div>
 
         <!-- Core Values -->
-        <div class="col-md-4">
+        <div class="col-12 col-md-12 col-lg-4">
           <div class="feature-card">
             <div class="icon-box-circle">
               <i class="bi bi-shield-check"></i>
@@ -427,52 +554,52 @@
   </section>
 
   <!-- ==================== WHY CHOOSE PARAMOUNT STEEL ==================== -->
-  <section class="py-5" style="background-color: #ffffff;">
-    <div class="container py-3">
-      <div class="row align-items-center g-5">
+  <section class="py-4 py-md-5" style="background-color: #ffffff;">
+    <div class="container py-2 py-md-3">
+      <div class="row align-items-center g-4 g-lg-5">
         
         <div class="col-lg-5 order-lg-2">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded shadow" alt="Steel Fabrication & Stocks">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded shadow w-100" alt="Steel Fabrication & Stocks">
         </div>
 
         <div class="col-lg-7 order-lg-1">
           <span class="badge bg-light text-success border border-success mb-3 px-3 py-2 fw-bold text-uppercase">The Paramount Edge</span>
-          <h2 class="display-6 fw-bold mb-4" style="color: var(--brand-navy);">
+          <h2 class="h2 h1-md fw-bold mb-4" style="color: var(--brand-navy);">
             Why Industry Leaders Choose Us
           </h2>
 
           <div class="d-flex mb-4">
-            <div class="me-3">
+            <div class="me-3 flex-shrink-0">
               <div class="btn btn-success btn-sm rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                 <i class="bi bi-truck fs-5"></i>
               </div>
             </div>
             <div>
-              <h5 class="fw-bold text-uppercase" style="color: var(--brand-navy);">Strategic Logistics & Stockyards</h5>
+              <h5 class="fw-bold text-uppercase fs-6 fs-md-5" style="color: var(--brand-navy);">Strategic Logistics & Stockyards</h5>
               <p class="text-muted fs-7 mb-0">Our Orile Iganmu stockyard is positioned near major Lagos ports and transit arteries, ensuring rapid dispatch for time-sensitive projects.</p>
             </div>
           </div>
 
           <div class="d-flex mb-4">
-            <div class="me-3">
+            <div class="me-3 flex-shrink-0">
               <div class="btn btn-success btn-sm rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                 <i class="bi bi-file-earmark-text fs-5"></i>
               </div>
             </div>
             <div>
-              <h5 class="fw-bold text-uppercase" style="color: var(--brand-navy);">Complete Mill Certification</h5>
+              <h5 class="fw-bold text-uppercase fs-6 fs-md-5" style="color: var(--brand-navy);">Complete Mill Certification</h5>
               <p class="text-muted fs-7 mb-0">Every batch of structural plates, beams, and seamless pipes comes complete with verifiable Mill Test Certificates (MTC).</p>
             </div>
           </div>
 
           <div class="d-flex mb-0">
-            <div class="me-3">
+            <div class="me-3 flex-shrink-0">
               <div class="btn btn-success btn-sm rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                 <i class="bi bi-rulers fs-5"></i>
               </div>
             </div>
             <div>
-              <h5 class="fw-bold text-uppercase" style="color: var(--brand-navy);">Tailored Processing & Sizing</h5>
+              <h5 class="fw-bold text-uppercase fs-6 fs-md-5" style="color: var(--brand-navy);">Tailored Processing & Sizing</h5>
               <p class="text-muted fs-7 mb-0">We offer custom cutting, slitting, and dimensional prep to reduce onsite fabrication waste and speed up assembly.</p>
             </div>
           </div>
@@ -488,9 +615,9 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <h2 class="display-5 fw-bold text-uppercase mb-3">Partner With Us Today</h2>
-          <p class="fs-5 text-white-50 mb-4">Need certified structural steel or custom profiles for your next engineering project? Speak directly with our procurement team.</p>
-          <div class="d-flex justify-content-center gap-3">
+          <h2 class="h2 h1-md fw-bold text-uppercase mb-3">Partner With Us Today</h2>
+          <p class="fs-6 fs-md-5 text-white-50 mb-4">Need certified structural steel or custom profiles for your next engineering project? Speak directly with our procurement team.</p>
+          <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
             <a href="contact.html" class="btn btn-outline-brand">Contact Sales</a>
             <a href="get-a-quote.html" class="btn btn-brand-green">Request RFQ</a>
           </div>
@@ -505,9 +632,9 @@
       <div class="row g-4 pb-5 border-bottom border-secondary">
         
         <!-- Col 1: Brand Logo & Summary -->
-        <div class="col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="mb-3 d-inline-block p-2">
-            <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+            <img class="header-logo" src="Images/paramount-logo.png" alt="Paramount Steel Logo">
           </div>
           <p class="fs-7 text-white-50 mb-3">
             Building a stronger future with precision, quality compliance, and reliable steel supply.
@@ -519,7 +646,7 @@
         </div>
 
         <!-- Col 2: Quick Links -->
-        <div class="col-lg-2 col-6">
+        <div class="col-6 col-md-6 col-lg-2">
           <h6 class="footer-heading">Quick Links</h6>
           <ul class="list-unstyled fs-7">
             <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
@@ -531,7 +658,7 @@
         </div>
 
         <!-- Col 3: Products -->
-        <div class="col-lg-3 col-6">
+        <div class="col-6 col-md-6 col-lg-3">
           <h6 class="footer-heading">Products</h6>
           <ul class="list-unstyled fs-7">
             <li class="mb-2"><a href="products/steel-plates.html" class="text-white-50 text-decoration-none">Mild & Checker Plates</a></li>
@@ -543,12 +670,12 @@
         </div>
 
         <!-- Col 4: Contact & Depots -->
-        <div class="col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <h6 class="footer-heading">Contact & Stockyard</h6>
           <div class="fs-7 text-white-50 mb-3">
             <p class="mb-1"><i class="bi bi-geo-alt-fill text-success me-2"></i> No. 10, Alhaji Bello Tapa Street, Behind Iron Market, Orile Iganmu, Lagos State, Nigeria.</p>
-            <p class="mb-1"><i class="bi bi-telephone-fill text-success me-2"></i> 08187766677 / 08020630066</p>
-            <p class="mb-0"><i class="bi bi-envelope-fill text-success me-2"></i> paramountsteel@rocketmail.com</p>
+            <p class="mb-1"><i class="bi bi-telephone-fill text-success me-2"></i> 08033459759 / 08020630066</p>
+            <p class="mb-0"><i class="bi bi-envelope-fill text-success me-2"></i> info@paramountsteel.com.ng</p>
           </div>
           
           <h6 class="text-white fw-bold fs-7 text-uppercase mb-2">Connect With Us</h6>
@@ -569,7 +696,7 @@
   </footer>
 
   <!-- Floating WhatsApp Action Button -->
-  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+  <a href="https://wa.me/2348033459759" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
     <i class="bi bi-whatsapp"></i>
   </a>
 

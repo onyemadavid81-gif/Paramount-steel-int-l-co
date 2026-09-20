@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Sustainability & Quality — Paramount Steel International Co.</title>
-  
+
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -21,11 +23,28 @@
       --title-red: #b91c1c;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: #0f172a;
       background-color: #ffffff;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
       scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     /* Top Strip */
@@ -36,40 +55,82 @@
       border-bottom: 2px solid var(--brand-green);
     }
 
+    .top-strip a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .top-strip a:hover {
+      color: var(--brand-green);
+    }
+
     /* Sticky Navbar */
     .sticky-top-header {
       position: sticky;
       top: 0;
       z-index: 1030;
+      width: 100%;
     }
+
     .navbar-paramount {
       background-color: var(--brand-navy-dark);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
     }
-    .header-logo {
-      max-height: 70px;
-      width: auto;
-    }
+
     .navbar-paramount .nav-link {
       color: #ffffff;
       font-weight: 600;
       font-size: 0.88rem;
       padding: 1rem 1rem !important;
     }
-    .navbar-paramount .nav-link:hover, 
+
+    .navbar-paramount .nav-link:hover,
     .navbar-paramount .nav-link.active {
       color: var(--brand-green);
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      padding: 0.5rem 0.65rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.15rem rgba(0, 135, 81, 0.35);
+    }
+
+    .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    .navbar-toggler:hover {
+      border-color: #008751 !important;
+    }
+
+    .header-logo {
+      max-height: 60px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+    }
+
+    @media (min-width: 768px) {
+      .header-logo {
+        max-height: 80px;
+      }
     }
 
     /* Mega Menu Dropdown */
     .mega-menu {
       width: 650px;
+      max-width: calc(100vw - 30px);
       border: none;
       border-top: 4px solid var(--brand-green);
       border-radius: 0;
       box-shadow: 0 20px 40px rgba(11, 27, 61, 0.2);
       background: #ffffff;
     }
+
     .mega-menu a {
       color: #334155;
       text-decoration: none;
@@ -77,19 +138,26 @@
       font-weight: 600;
       padding: 0.4rem 0;
       display: block;
+      word-wrap: break-word;
     }
+
     .mega-menu a:hover {
       color: var(--brand-green);
       padding-left: 6px;
     }
+
     @media (min-width: 992px) {
-      .dropdown:hover .mega-menu { display: block; }
+      .dropdown:hover .mega-menu {
+        display: block;
+      }
     }
 
     /* Hero Banner */
     .sustainability-hero {
-      background: linear-gradient(rgba(11, 27, 61, 0.85), rgba(5, 13, 30, 0.9)), 
-                  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+      background:
+        linear-gradient(rgba(11, 27, 61, 0.85), rgba(5, 13, 30, 0.9)),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop')
+        center/cover no-repeat;
       color: #ffffff;
       padding: 5rem 0;
     }
@@ -104,9 +172,11 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
     }
+
     .feature-card:hover {
       transform: translateY(-5px);
     }
+
     .feature-icon {
       font-size: 2.5rem;
       color: var(--brand-green);
@@ -121,8 +191,12 @@
       border-radius: 0;
       padding: 0.75rem 1.5rem;
       border: none;
+      white-space: normal;
     }
-    .btn-brand-green:hover { background-color: var(--brand-green-hover); }
+
+    .btn-brand-green:hover {
+      background-color: var(--brand-green-hover);
+    }
 
     /* WhatsApp Float */
     .whatsapp-float {
@@ -142,160 +216,658 @@
       z-index: 1000;
       text-decoration: none;
     }
+
+    /* =========================================
+       MOBILE RESPONSIVENESS
+       ========================================= */
+
+    @media (max-width: 991.98px) {
+
+      /* Navbar */
+      .navbar-paramount .container {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .navbar-collapse {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .navbar-nav {
+        width: 100%;
+        padding: 0.75rem 0 1rem;
+      }
+
+      .navbar-paramount .nav-link {
+        padding: 0.75rem 0.5rem !important;
+      }
+
+      .navbar-nav .nav-item {
+        width: 100%;
+      }
+
+      .navbar-nav .btn {
+        display: inline-block;
+        margin-left: 0.5rem;
+        margin-top: 0.25rem;
+      }
+
+      /* Mobile Mega Menu */
+      .mega-menu {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: static !important;
+        transform: none !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-shadow: none;
+        border-top: 2px solid var(--brand-green);
+      }
+
+      .mega-menu .row {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 0.5rem;
+      }
+
+      .mega-menu .col-md-6 {
+        width: 100%;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-sharp);
+        padding-bottom: 1rem;
+      }
+
+      .mega-menu .col-md-6:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .mega-menu h6 {
+        line-height: 1.4;
+      }
+
+      /* Hero */
+      .sustainability-hero {
+        padding: 4rem 1rem;
+      }
+
+      .sustainability-hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+      }
+
+      .sustainability-hero .lead {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .sustainability-hero .badge {
+        white-space: normal;
+        line-height: 1.4;
+      }
+
+      /* Sections */
+      section .container {
+        max-width: 100%;
+      }
+
+      /* Quality section */
+      .feature-card {
+        padding: 1.5rem;
+      }
+
+      /* Prevent long headings from causing horizontal overflow */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      li {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+    }
+
+    /* =========================================
+       SMALL MOBILE DEVICES
+       ========================================= */
+
+    @media (max-width: 575.98px) {
+
+      /* Navbar */
+      .header-logo {
+        max-height: 52px;
+        max-width: 145px;
+      }
+
+      .navbar-paramount {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+      }
+
+      .navbar-toggler {
+        padding: 0.4rem 0.55rem;
+      }
+
+      /* Hero */
+      .sustainability-hero {
+        padding: 3.5rem 1rem;
+      }
+
+      .sustainability-hero h1 {
+        font-size: 1.85rem;
+        line-height: 1.25;
+      }
+
+      .sustainability-hero .lead {
+        font-size: 0.95rem;
+      }
+
+      .sustainability-hero .badge {
+        font-size: 0.72rem;
+        padding: 0.55rem 0.75rem !important;
+      }
+
+      /* Section headings */
+      section h2 {
+        font-size: 1.65rem;
+        line-height: 1.3;
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        padding: 1.35rem;
+      }
+
+      .feature-icon {
+        font-size: 2.2rem;
+      }
+
+      .feature-card h4 {
+        font-size: 1.05rem !important;
+        line-height: 1.35;
+      }
+
+      .feature-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* Quality section */
+      .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+      }
+
+      .quality-box,
+      .p-4 {
+        padding: 1.25rem !important;
+      }
+
+      /* Request Specification button */
+      .btn-brand-green {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      /* WhatsApp */
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 1.55rem;
+      }
+
+      /* Footer */
+      footer {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    /* Extra-small screens */
+    @media (max-width: 360px) {
+
+      .header-logo {
+        max-width: 130px;
+        max-height: 48px;
+      }
+
+      .sustainability-hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .sustainability-hero {
+        padding: 3rem 0.75rem;
+      }
+
+      section h2 {
+        font-size: 1.45rem;
+      }
+
+      .feature-card {
+        padding: 1.1rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- ==================== TOP ANNOUNCEMENT STRIP ==================== -->
   <div class="top-strip py-2 d-none d-lg-block">
     <div class="container d-flex justify-content-between align-items-center">
       <div>
-        <span class="me-4"><i class="bi bi-envelope-fill me-1 text-success"></i> paramountsteel@rocketmail.com</span>
-        <span><i class="bi bi-telephone-fill me-1 text-success"></i> 08187766677 / 08020630066</span>
+        <span class="me-4">
+          <i class="bi bi-envelope-fill me-1 text-success"></i>
+          info@paramountsteel.com
+        </span>
+
+        <span>
+          <i class="bi bi-telephone-fill me-1 text-success"></i>
+          08033459759 / 08020630066
+        </span>
       </div>
+
       <div>
-        <span class="badge bg-success font-monospace">BN: 2200741</span>
+        <span class="badge bg-success font-monospace">
+          BN: 2200741
+        </span>
       </div>
     </div>
   </div>
+
 
   <!-- ==================== MAIN NAVBAR ==================== -->
   <div class="sticky-top-header">
+
     <nav class="navbar navbar-expand-lg navbar-paramount py-2">
+
       <div class="container">
+
         <a class="navbar-brand" href="index.html">
-          <img class="header-logo" src="Images/Paramount 3 jpeg.png" alt="Paramount Steel Logo">
+          <img
+            class="header-logo"
+            src="Images/paramount-logo.png"
+            alt="Paramount Steel Logo"
+          >
         </a>
 
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#paramountNav">
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#paramountNav"
+          aria-controls="paramountNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="collapse navbar-collapse" id="paramountNav">
+
           <ul class="navbar-nav ms-auto align-items-lg-center">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" href="products.html" data-bs-toggle="dropdown">Products Catalog</a>
-              <div class="dropdown-menu mega-menu p-4">
-                <div class="row g-4">
-                  <div class="col-md-6 border-end">
-                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">1. Structural & Commercial Steel</h6>
-                    <a href="products.html#plates-section"><i class="bi bi-chevron-right text-success me-1"></i> Mild & Checker Steel Plates</a>
-                    <a href="products.html#beams-section"><i class="bi bi-chevron-right text-success me-1"></i> Universal I-Beams & C-Channels</a>
-                    <a href="products.html#bars-section"><i class="bi bi-chevron-right text-success me-1"></i> Angle, Flat & Solid Round Bars</a>
-                  </div>
-                  <div class="col-md-6">
-                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">2. Piping & Specialty Metals</h6>
-                    <a href="products.html#pipes-section"><i class="bi bi-chevron-right text-success me-1"></i> Seamless Pipes & Hollow Sections</a>
-                    <a href="products.html#stainless-section"><i class="bi bi-chevron-right text-success me-1"></i> Stainless Steel Sheets & Profiles</a>
-                    <a href="products.html#aluminum-section"><i class="bi bi-chevron-right text-success me-1"></i> Aluminum Stock & Industrial Coils</a>
-                  </div>
-                </div>
-              </div>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
             </li>
 
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link active" href="sustainability.html">Sustainability</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Get in Touch</a></li>
-            <li class="nav-item ms-lg-3"><a href="get-a-quote.html" class="btn btn-brand-green btn-sm">Get a Quote</a></li>
+
+            <!-- Products -->
+            <li class="nav-item dropdown position-static">
+
+              <a
+                class="nav-link dropdown-toggle"
+                href="products.html"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products Catalog
+              </a>
+
+              <div class="dropdown-menu mega-menu p-4">
+
+                <div class="row g-4">
+
+                  <div class="col-md-6 border-end">
+
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">
+                      1. Structural & Commercial Steel
+                    </h6>
+
+                    <a href="products.html#plates-section">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Mild & Checker Steel Plates
+                    </a>
+
+                    <a href="products.html#beams-section">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Universal I-Beams & C-Channels
+                    </a>
+
+                    <a href="products.html#bars-section">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Angle, Flat & Solid Round Bars
+                    </a>
+
+                  </div>
+
+
+                  <div class="col-md-6">
+
+                    <h6 class="text-success fw-bold text-uppercase fs-7 mb-3">
+                      2. Piping & Specialty Metals
+                    </h6>
+
+                    <a href="products.html#pipes-section">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Seamless Pipes & Hollow Sections
+                    </a>
+
+                    <a href="products.html#stainless-section">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Stainless Steel Sheets & Profiles
+                    </a>
+
+                    <a href="products.html#aluminum-section">
+                      <i class="bi bi-chevron-right text-success me-1"></i>
+                      Aluminum Stock & Industrial Coils
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="sustainability.html">
+                Sustainability
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">
+                Get in Touch
+              </a>
+            </li>
+
+            <li class="nav-item ms-lg-3">
+              <a href="get-a-quote.html" class="btn btn-brand-green btn-sm">
+                Get a Quote
+              </a>
+            </li>
+
           </ul>
+
         </div>
+
       </div>
+
     </nav>
+
   </div>
+
 
   <!-- ==================== HERO SECTION ==================== -->
   <section class="sustainability-hero text-center">
+
     <div class="container">
-      <span class="badge bg-success text-uppercase tracking-wider mb-3 px-3 py-2">Green Steel & Responsible Sourcing</span>
-      <h1 class="display-5 fw-bold text-uppercase">Building a Sustainable Future</h1>
+
+      <span class="badge bg-success text-uppercase tracking-wider mb-3 px-3 py-2">
+        Green Steel & Responsible Sourcing
+      </span>
+
+      <h1 class="display-5 fw-bold text-uppercase">
+        Building a Sustainable Future
+      </h1>
+
       <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
-        At Paramount Steel International Co., we balance structural strength with environmental responsibility through material efficiency and mill-level transparency.
+        At Paramount Steel International Co., we balance structural strength
+        with environmental responsibility through material efficiency and
+        mill-level transparency.
       </p>
+
     </div>
+
   </section>
+
 
   <!-- ==================== SUSTAINABILITY PILLARS ==================== -->
   <section class="py-5 bg-light">
+
     <div class="container py-4">
+
       <div class="text-center mb-5">
-        <h2 class="fw-bold text-uppercase" style="color: var(--brand-navy);">Our Environmental Commitments</h2>
-        <div class="mx-auto bg-success" style="height: 3px; width: 60px;"></div>
+
+        <h2 class="fw-bold text-uppercase" style="color: var(--brand-navy);">
+          Our Environmental Commitments
+        </h2>
+
+        <div
+          class="mx-auto bg-success"
+          style="height: 3px; width: 60px;"
+        ></div>
+
       </div>
+
 
       <div class="row g-4">
+
+        <!-- Card 1 -->
         <div class="col-lg-4 col-md-6">
+
           <div class="feature-card">
+
             <i class="bi bi-recycle feature-icon"></i>
-            <h4 class="fw-bold text-uppercase fs-5" style="color: var(--brand-navy);">100% Recyclable Materials</h4>
+
+            <h4
+              class="fw-bold text-uppercase fs-5"
+              style="color: var(--brand-navy);"
+            >
+              100% Recyclable Materials
+            </h4>
+
             <p class="text-muted fs-7 mb-0">
-              Steel is the most recycled material on earth. All structural beams, plates, and pipes supplied by Paramount Steel can be continuously recycled without losing structural integrity.
+              Steel is the most recycled material on earth. All structural
+              beams, plates, and pipes supplied by Paramount Steel can be
+              continuously recycled without losing structural integrity.
             </p>
+
           </div>
+
         </div>
 
+
+        <!-- Card 2 -->
         <div class="col-lg-4 col-md-6">
+
           <div class="feature-card">
+
             <i class="bi bi-scissors feature-icon"></i>
-            <h4 class="fw-bold text-uppercase fs-5" style="color: var(--brand-navy);">Zero-Waste Precision Cutting</h4>
+
+            <h4
+              class="fw-bold text-uppercase fs-5"
+              style="color: var(--brand-navy);"
+            >
+              Zero-Waste Precision Cutting
+            </h4>
+
             <p class="text-muted fs-7 mb-0">
-              Our yard cutting services minimize off-cut scrap by utilizing optimized length planning for major construction orders, drastically reducing site material waste.
+              Our yard cutting services minimize off-cut scrap by utilizing
+              optimized length planning for major construction orders,
+              drastically reducing site material waste.
             </p>
+
           </div>
+
         </div>
 
+
+        <!-- Card 3 -->
         <div class="col-lg-4 col-md-6">
+
           <div class="feature-card">
+
             <i class="bi bi-patch-check-fill feature-icon"></i>
-            <h4 class="fw-bold text-uppercase fs-5" style="color: var(--brand-navy);">Certified Mill Sourcing</h4>
+
+            <h4
+              class="fw-bold text-uppercase fs-5"
+              style="color: var(--brand-navy);"
+            >
+              Certified Mill Sourcing
+            </h4>
+
             <p class="text-muted fs-7 mb-0">
-              We partner exclusively with accredited mills that meet international environmental and energy standards (ISO 14001 / ISO 9001 certification compliant).
+              We partner exclusively with accredited mills that meet
+              international environmental and energy standards
+              (ISO 14001 / ISO 9001 certification compliant).
             </p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
 
   <!-- ==================== QUALITY & MTC SECTION ==================== -->
   <section class="py-5">
+
     <div class="container">
+
       <div class="row align-items-center g-5">
+
+        <!-- Left -->
         <div class="col-lg-6">
-          <h2 class="fw-bold text-uppercase mb-3" style="color: var(--brand-navy);">Traceability & Quality Assurance</h2>
+
+          <h2
+            class="fw-bold text-uppercase mb-3"
+            style="color: var(--brand-navy);"
+          >
+            Traceability & Quality Assurance
+          </h2>
+
           <p class="text-muted">
-            Sustainable construction starts with structural integrity. Substandard steel leads to premature replacement, structural failures, and unnecessary carbon expenditure.
+            Sustainable construction starts with structural integrity.
+            Substandard steel leads to premature replacement, structural
+            failures, and unnecessary carbon expenditure.
           </p>
+
           <ul class="list-unstyled text-muted fs-7">
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Mill Test Certificates (MTC):</strong> Provided with every batch for full chemical and physical traceability.</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Standard Compliance:</strong> Stocked strictly to ASTM, BS EN, and API specification standards.</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Corrosion Protection:</strong> Pre-primed and specialized stainless/aluminum stocks for extended lifecycle endurance.</li>
+
+            <li class="mb-2">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+              <strong>Mill Test Certificates (MTC):</strong>
+              Provided with every batch for full chemical and physical
+              traceability.
+            </li>
+
+            <li class="mb-2">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+              <strong>Standard Compliance:</strong>
+              Stocked strictly to ASTM, BS EN, and API specification
+              standards.
+            </li>
+
+            <li class="mb-2">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+              <strong>Corrosion Protection:</strong>
+              Pre-primed and specialized stainless/aluminum stocks for
+              extended lifecycle endurance.
+            </li>
+
           </ul>
+
         </div>
+
+
+        <!-- Right -->
         <div class="col-lg-6">
+
           <div class="p-4 rounded-3 border bg-light text-center">
+
             <i class="bi bi-file-earmark-pdf fs-1 text-danger mb-3 d-block"></i>
-            <h4 class="fw-bold text-uppercase" style="color: var(--brand-navy);">Need MTC Specifications?</h4>
-            <p class="text-muted fs-7">You can request full material test reports for any order directly through our sales desk.</p>
-            <a href="get-a-quote.html" class="btn btn-brand-green text-uppercase mt-2">Request Specification Sheet</a>
+
+            <h4
+              class="fw-bold text-uppercase"
+              style="color: var(--brand-navy);"
+            >
+              Need MTC Specifications?
+            </h4>
+
+            <p class="text-muted fs-7">
+              You can request full material test reports for any order
+              directly through our sales desk.
+            </p>
+
+            <a
+              href="get-a-quote.html"
+              class="btn btn-brand-green text-uppercase mt-2"
+            >
+              Request Specification Sheet
+            </a>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="bg-dark text-white pt-5 pb-4">
+
     <div class="container text-center">
-      <p class="mb-0 fs-7 text-white-50">&copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.</p>
+
+      <p class="mb-0 fs-7 text-white-50">
+        &copy; 2026 PARAMOUNT STEEL INTERNATIONAL CO. All rights reserved.
+      </p>
+
     </div>
+
   </footer>
 
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/2348187766677" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
 
-  <!-- JavaScript -->
+  <!-- WhatsApp Float Button -->
+  <a
+    href="https://wa.me/2348033459759"
+    target="_blank"
+    class="whatsapp-float"
+    title="Chat with us on WhatsApp"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+
+  <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
